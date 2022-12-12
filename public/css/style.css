@@ -1,0 +1,104 @@
+* {
+    padding: 0;
+    margin: 0;
+    font-family: "Roboto", sans-serif;
+}
+a {
+    text-decoration: none;
+    color: #515152;
+}
+a:hover {
+    color: #5ae4a8;
+}
+.nav-link,
+.dropdown-menu {
+    color: #5d5b6b;
+}
+.nav-link:hover,
+.dropdown-item:hover {
+    color: rgb(212, 0, 0);
+}
+.dropdown-menu a:active {
+    background-color: #fff;
+}
+.logo {
+    width: 50px;
+    height: 50px;
+    display: grid;
+    place-items: center;
+    color: #fff;
+}
+.logo:hover {
+    color: #d7d7d7;
+}
+
+.banner-principal {
+    /* border-radius: 0 0 200px 200px ; */
+
+    border-bottom-left-radius: 70%;
+    border-bottom-right-radius: 70%;
+    height: 400px;
+    display: grid;
+    place-items: center;
+    text-shadow: 3px 3px rgb(151, 151, 151);
+    color: #fff;
+    background-color: #d7d7d7;
+    background-image: url("/img/pc.png");
+    background-position: 90% 10px;
+    background-repeat: no-repeat;
+    background-size: 300px;
+    color: rgb(212, 50, 14);
+}
+.titulo-text {
+    color: #5ae4a8;
+    text-shadow: 1px 1px #515152;
+}
+.ferramentas {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    grid-gap: 5px;
+    color: #5d5b6b;
+    text-shadow: 2px 2px #d7d7d7;
+}
+.card {
+    border: none;
+    width: 300px;
+    height: 400px;
+    background-image: url("/img/wave.svg");
+    background-position: bottom;
+    background-repeat: no-repeat;
+    background-size: 900px;
+}
+.calculadora {
+    max-width: 100%;
+    -moz-transition: all 0.5s;
+    -webkit-transition: all 0.5s;
+    transition: all 0.5s;
+}
+.calculadora:hover {
+    -moz-transform: scale(1.2);
+    -webkit-transform: scale(1.2);
+    transform: scale(1.2);
+}
+.card-footer {
+    border: none;
+}
+/* .interna{
+    background-color: #FF0000;
+    width: 100%;
+}
+.calc-footer{
+    background: #fff;
+    height: 50%;
+} */
+.tabela {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+    gap: 10px;
+}
+
+@media only screen and (max-width: 425px) {
+    .tabela{
+        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    }
+}
