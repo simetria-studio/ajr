@@ -1,44 +1,4 @@
-function somar() {
-    const aliquota = document.querySelector("#aliquota").value;
-    const icms = document.querySelector("#icms").value;
-    const icmsSt = document.querySelector("#icmsSt").value;
-    var produto = document.getElementById("produto").value;
-    var seguro = document.getElementById("seguro").value;
-    var frete = document.getElementById("valor-frete").value;
-    var desconto = document.getElementById("desconto").value;
-    var outros = document.getElementById("outros").value;
-    var resultado = document.getElementById("resultado");
-    var ipi = document.getElementById("ipi");
-    var resultadoicms = document.getElementById("resultadoicms");
-    var resultadoicmsst = document.getElementById("resultadoicmsst");
-
-    valorTotal =
-        (parseFloat(aliquota) * parseFloat(produto)) / 100 +
-        (parseFloat(icms) * parseFloat(produto)) / 100 +
-        (parseFloat(icmsSt) * parseFloat(produto)) / 100 +
-        parseFloat(produto) +
-        parseFloat(seguro) +
-        parseFloat(frete) -
-        parseFloat(desconto) +
-        parseFloat(outros);
-
-    resultado.innerHTML = valorTotal;
-
-    resultadoIpi = (parseFloat(aliquota) * parseFloat(produto)) / 100;
-    resultadosicms = (parseFloat(icms) * parseFloat(produto)) / 100;
-    resultadosicmsst = (parseFloat(icmsSt) * parseFloat(produto)) / 100;
-
-    ipi.innerHTML = resultadoIpi;
-    resultadoicms.innerHTML = resultadosicms;
-    resultadoicmsst.innerHTML = resultadosicmsst;
-}
-
-// $(document).on("blur", "#aliquota", function () {
-//     console.log($(this).val());
-// });
-
-
-//CALCULAORA DE ICMS EM JQUERY
+//CALCULAORA DE ICMS
 
 //SOMA
 $("#btn_somar").click(() => {
@@ -69,6 +29,7 @@ $("#reducao_icms").click(() => {
     var selectReducao = $("#reducao_icms").val();
     if (selectReducao == 0) {
         $("#baseicms").prop("disabled", true);
+        $("#valor_frete").val("0");
     } else {
         $("#baseicms").prop("disabled", false);
     }
@@ -78,6 +39,7 @@ $("#reducao_icmsst").click(() => {
     var selectReducaov2 = $("#reducao_icmsst").val();
     if (selectReducaov2 == 0) {
         $("#baseicmsst").prop("disabled", true);
+        $("#valor_frete").val("0");
     } else {
         $("#baseicmsst").prop("disabled", false);
     }

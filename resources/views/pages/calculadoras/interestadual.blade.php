@@ -2,10 +2,12 @@
 
 @section('content')
     <div class="container">
+
+        <!-- Titulo da pagina-->
         <div class="text-center my-5">
             <h2 class="text-danger">Simulação Interestadual</h2>
         </div>
-
+        <!-- Pesquisa sobre Simples Nacional -->
         <div class="text-center mb-5">
             <h3>O Remetente é Optante do Simples Nacional?</h3>
             <div class="form-check form-check-inline">
@@ -19,34 +21,33 @@
         </div>
 
         <div class="tabela">
+            <!-- Tabela Esquerda -->
             <div class="border shadow rounded bg-white p-5">
                 <form>
                     <div class="row">
+
+                        <!--Campos/inputs-->
+
                         <div class="col-12 mb-2">
                             <label for="ipivalue" class="form-label">Alíquota do IPI</label>
                         </div>
                         <div class="col-md-4 col-6  mb-3">
                             <div class="input-group">
-                                <input id="ipivalue" class="form-control" type="number" min="0" max="100">
+                                <input id="ipivalue" class="form-control" type="number" value="5" min="0"
+                                    max="100">
                                 <span class="input-group-text">%</span>
                             </div>
-
                         </div>
 
                         <div class="col-12 mb-2">
-                            <label for="reducao_icms" class="form-label">
-                                Redução base de cálculo ICMS
-                            </label>
+                            <label for="reducao_icms" class="form-label"> Redução base de cálculo ICMS </label>
                         </div>
-
                         <div class="col-md-6 col-6   mb-3">
-                            <select name="" id="reducao_icms" class="form-select">
+                            <select id="reducao_icms" class="form-select">
                                 <option selected value="0">Sem Redução</option>
                                 <option value="1">Com Redução</option>
                             </select>
                         </div>
-
-
                         <div class="col-md-4 mb-3 reducao_icms">
                             <div class="input-group">
                                 <input id="baseicms" disabled value="0" class="form-control" type="number"
@@ -56,14 +57,10 @@
                         </div>
 
                         <div class="col-12 mb-2">
-                            <label for="reducao_icmsst" class="form-label">
-                                Redução base de cálculo ICMS-ST
-
-                            </label>
+                            <label for="reducao_icmsst" class="form-label"> Redução base de cálculo ICMS-ST </label>
                         </div>
-
                         <div class="col-md-6 mb-3">
-                            <select name="" id="reducao_icmsst" class="form-select">
+                            <select id="reducao_icmsst" class="form-select">
                                 <option value="0">Sem Redução</option>
                                 <option value="1">Com Redução</option>
                             </select>
@@ -113,9 +110,10 @@
                     </div>
                 </form>
             </div>
+            <!-- Tabela Esquerda -->
             <div class="border shadow rounded bg-white p-5">
                 <form>
-                    <div class="row">
+                    <div class="row p-3">
                         <div class="col-md-6 mb-3">
                             <label for="valor_produto" class="form-label">Valor total dos produtos</label>
                             <div class="input-group">
@@ -123,6 +121,7 @@
                                 <input id="valor_produto" type="text" value="0" class="form-control">
                             </div>
                         </div>
+
                         <div class="col-md-6 mb-3">
                             <label for="valor_seguro" class="form-label">Valor do Seguro</label>
                             <div class="input-group">
@@ -130,13 +129,15 @@
                                 <input id="valor_seguro" type="text" value="0" class="form-control">
                             </div>
                         </div>
+
                         <div class="col-md-6 mb-3">
                             <label for="tipofrete" class="form-label">Tipo de Frete</label>
-                            <select name="" id="tipofrete" class="form-select">
+                            <select id="tipofrete" class="form-select">
                                 <option value="0" selected>Sem frete</option>
                                 <option value="1">Com frete</option>
                             </select>
                         </div>
+
                         <div class="col-md-6 mb-3" id="frete">
                             <label for="valor_frete" class="form-label">Valor do Frete</label>
                             <div class="input-group">
@@ -144,6 +145,7 @@
                                 <input id="valor_frete" disabled type="text" value="0" class="form-control">
                             </div>
                         </div>
+
                         <div class="col-md-6 mb-3">
                             <label for="desconto" class="form-label">Desconto</label>
                             <div class="input-group">
@@ -151,60 +153,57 @@
                                 <input id="desconto" type="text" value="0" class="form-control">
                             </div>
                         </div>
+
                         <div class="col-md-6 mb-3">
-                            <label for="outros" class="form-label">Outras despesas acessórias</label>
+                            <label for="outros" class="form-label">Outras despesas</label>
                             <div class="input-group">
                                 <span class="input-group-text">R$</span>
                                 <input id="outros" type="text" value="0" class="form-control">
                             </div>
                         </div>
 
+                        <!--Resultados-->
 
-                        <div class="col-12 mb-3">
-                            <div class="row ">
-                                <div class="col-md-6 p-2 border">
-                                    Base de cálculo do ICMS <br>
-                                    <span>R$ 0,00</span>
-                                </div>
-                                <div class="col-md-6 p-2 border">
-                                    Valor do ICMS <br>
-                                    <span>R$0,00</span>
-                                </div>
-                                <div class="col-md-6 p-2 border">
-                                    Base de cálculo do ICMS-ST
-                                    <br>
-                                    <span>R$ 0,00</span>
-                                </div>
-                                <div class="col-md-6 p-2 border">
-                                    Valor do ICMS-ST <br>
-                                    <span>R$0,00</span>
-                                </div>
-                                <div class="col-md-4 p-2 border">
-                                    FCP <br>
-                                    <span>0,00%</span>
-                                </div>
-                                <div class="col-md-4 p-2 border">
-                                    Valor do IPI <br>
-                                    <span>R$0,00</span>
-                                </div>
-                                <div class="col-md-4 p-2 border">
-                                    Valor da nota total <br>
-                                    R$
-                                    <span type="text" id="resultado" value="0"></span>
-                                </div>
-                            </div>
+                        <div class="col-md-6 p-2 border">
+                            Base de cálculo do ICMS <br>
+                            <span>R$ 0,00</span>
                         </div>
 
-                        <div class="col-12 mb-3">
-                            <button type="button" id="btn_somar" class="btn btn-outline-info">Somar</button>
+                        <div class="col-md-6 p-2 border">
+                            Valor do ICMS <br>
+                            <span>R$0,00</span>
+                        </div>
 
+                        <div class="col-md-6 p-2 border">
+                            Base de cálculo do ICMS-ST
+                            <br>
+                            <span>R$ 0,00</span>
+                        </div>
+
+                        <div class="col-md-6 p-2 border">
+                            Valor do ICMS-ST <br>
+                            <span>R$0,00</span>
+                        </div>
+
+                        <div class="col-md-4 p-2 border">
+                            FCP <br>
+                            <span>0,00%</span>
+                        </div>
+                        <div class="col-md-4 p-2 border">
+                            Valor do IPI <br>
+                            <span>R$0,00</span>
+                        </div>
+                        <div class="col-md-4 p-2 border">
+                            Valor da nota total <br>
+                            R$ <span id="resultado"></span>
+                        </div>
+
+                        <div class="col-12 my-3">
+                            <button type="button" id="btn_somar" class="btn btn-outline-info float-end">Somar</button>
                         </div>
                     </div>
                 </form>
             </div>
         </div>
     </div>
-
-
-
 @endsection
