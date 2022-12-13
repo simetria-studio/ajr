@@ -1,7 +1,9 @@
 <?php
 
+use App\Http\Controllers\ConvenioController;
 use App\Http\Controllers\icmsinternaController;
 use App\Http\Controllers\InterestadualController;
+use App\Http\Controllers\SubstituicaoTributariaController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -15,6 +17,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+
 Route::get('/', function () {
     return view('index');
 });
@@ -24,3 +27,5 @@ Auth::routes();
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::get('/icms-interna', [icmsinternaController::class, 'index'])->name('icms-interna');
 Route::get('/icms-interestadual', [InterestadualController::class, 'index'])->name('icms-interestadual');
+Route::get('/substituicao-tributaria', [SubstituicaoTributariaController::class, 'index'])->name('substituicao-tributaria');
+Route::get('/convenio',[ConvenioController::class, 'index'])->name('convenio');

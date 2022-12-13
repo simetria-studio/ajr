@@ -1,16 +1,7 @@
 @extends('layouts.main')
 
 @section('content')
-    <div class="container-fluid">
-        <div class="row">
-            <div class="col-md-12 p-0 banner-principal">
 
-                <h1>
-                    Simuladores de Cálculos
-                </h1>
-            </div>
-        </div>
-    </div>
     <div class="container">
         <div class="text-center mt-5 mb-5">
             <h1 class="titulo-text">Calculadoras</h1>
@@ -18,7 +9,7 @@
 
         <div class="ferramentas text-center">
 
-            <a href="{{ route('icms-interna') }}" class="calculadora">
+            <a href="{{ route('substituicao-tributaria') }}" class="calculadora">
                 <div class="card shadow-lg mb-5">
                     <div class="card-body">
                         <div class="d-flex align-items-center justify-content-center pt-5">

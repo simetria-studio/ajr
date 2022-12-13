@@ -36,8 +36,10 @@
                                 Simulador de Cálculo Substituição
                             </a>
                             <ul class="dropdown-menu">
-                                <li><a class="dropdown-item " href="{{ route('icms-interna') }}">Simulação Interna</a></li>
-                                <li><a class="dropdown-item " href="{{ route('icms-interestadual') }}">Simulação Interestadual</a></li>
+                                <li><a class="dropdown-item " href="{{ route('icms-interna') }}">Simulação Interna</a>
+                                </li>
+                                <li><a class="dropdown-item " href="{{ route('icms-interestadual') }}">Simulação
+                                        Interestadual</a></li>
                             </ul>
                         </li>
 
@@ -49,6 +51,7 @@
                             <a class="nav-link " href="#">Tributação de ICMS por NCM</a>
                         </li>
                     </ul>
+
                     <div>
                         @if (Route::has('login'))
                             <div class="hidden fixed top-0 right-0 px-6 py-4 sm:block">
@@ -69,22 +72,40 @@
             </div>
         </nav>
     </header>
+
+    @section('banner')
+        <div class="container-fluid mb-2">
+            <div class="row">
+                <div class="col-md-12 p-0 banner-principal">
+
+                    <h1>
+                        Simuladores de Cálculos
+                    </h1>
+                </div>
+            </div>
+        </div>
+    @show
+
+
     <main>
         @yield('content')
     </main>
 
 
-    <footer class="py-3 my-4">
-        <div class="container">
-            <ul class="nav justify-content-center border-bottom pb-3 mb-3">
-                <li class="nav-item"><a href="{{ url('/') }}" class="nav-link px-2 text-muted">Home</a></li>
-                <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">Suporte</a></li>
-                <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">Contato</a></li>
-            </ul>
-            <p class="text-center text-muted">&copy; 2022 Ajr Sistemas</p>
-        </div>
+    @section('footer')
+        <footer class="py-3 my-4">
+            <div class="container">
+                <ul class="nav justify-content-center border-bottom pb-3 mb-3">
+                    <li class="nav-item"><a href="{{ url('/') }}" class="nav-link px-2 text-muted">Home</a></li>
+                    <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">Suporte</a></li>
+                    <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">Contato</a></li>
+                </ul>
+                <p class="text-center text-muted">&copy; 2022 Ajr Sistemas</p>
+            </div>
 
-    </footer>
+        </footer>
+    @show
+
 
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
