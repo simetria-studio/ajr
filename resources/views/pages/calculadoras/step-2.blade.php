@@ -8,7 +8,7 @@
     <div class="container">
         <div class="row justify-content-center align-items-center g-2">
             <div class="col-6 text-center my-4">
-                <div class="alert alert-primary">
+                <div class="alert alert-danger">
                     Escolha qual item se enquadra a descrição e segmento do seu produto ou faça uma nova pesquisa
                 </div>
             </div>
@@ -17,7 +17,7 @@
                 <h4>Itens do Convênio</h4>
             </div>
             <table class="table table-bordered table-hover">
-                <thead class="table-dark">
+                <thead class="table-danger">
                     <tr>
                         <th>CEST</th>
                         <th>NCM</th>
@@ -32,14 +32,14 @@
                         <th>00000001</th>
                         <th>Açucar refinado em embalagem de conteúdo superior a 5kg </th>
                         <th>Produto Alimentícios</th>
-                        <th><button class="btn btn-primary">escolher</button></th>
+                        <th><a href="{{ route('detalhes') }}" type="button" class="btn btn-danger">escolher</a></th>
                     </tr>
                     <tr>
                         <th>00000001</th>
                         <th>00000001</th>
                         <th>Açucar refinado em embalagem de conteúdo superior a 5kg </th>
                         <th>Produto Alimentícios</th>
-                        <th><button class="btn btn-primary">escolher</button></th>
+                        <th><button class="btn btn-danger">escolher</button></th>
                     </tr>
 
                 </tbody>

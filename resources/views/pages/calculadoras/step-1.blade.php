@@ -11,7 +11,7 @@
             <div class="my-2 text-center titulo">
                 <h1>SUBSTITUIÇÃO TRIBUTÁRIA</h1>
             </div>
-            <div class="col-6 mx-auto alert alert-primary mb-5 text-center" role="alert">
+            <div class="col-6 mx-auto alert alert-danger mb-5 text-center" role="alert">
                 <h5 class="">
                     Pesquise se há a aplicação da substituição tributária para o seu produto no Estado de destino
                 </h5>
@@ -21,7 +21,7 @@
                     <div class="input-group">
                         <input type="text" class="form-control " placeholder="Digite sua CEST/NCM" maxlength="8"
                             size="8">
-                        <a href="{{route('convenio')}}" type="button" class="btn btn-primary">BUSCAR</a>
+                        <a href="{{ route('convenio') }}" type="button" class="btn btn-danger">BUSCAR</a>
                     </div>
 
 
