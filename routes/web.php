@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\ConvenioController;
+use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\DetalheConvinioController;
 use App\Http\Controllers\icmsinternaController;
 use App\Http\Controllers\InterestadualController;
@@ -32,13 +33,15 @@ Route::get('/', function () {
     return view('index');
 });
 
- 
+Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard')->middleware('auth');
 
-Route::get('/dashboard', [ProdutoController::class, 'index'])->name('dashboard');
-Route::get('/dashboard/create', [ProdutoController::class, 'create']);  
-Route::post('/products', [ProdutoController::class, 'store']);
-
-
+Route::get('/dashboard/produtos', [ProdutoController::class, 'index'])->name('produtos')->middleware('auth');
+Route::get('/dashboard/produtos/create', [ProdutoController::class, 'create'])->middleware('auth');  
+Route::get('/dashboard/produtos/{id}', [ProdutoController::class, 'show'])->middleware('auth');  
+Route::post('/dashboard/produtos', [ProdutoController::class, 'store'])->middleware('auth');
+Route::delete('/dashboard/produtos/{id}', [ProdutoController::class, 'destroy'])->middleware('auth');
+Route::get('/dashboard/produtos/edit/{id}', [ProdutoController::class, 'edit'])->middleware('auth');
+Route::put('/dashboard/produtos/update/{id}', [ProdutoController::class, 'update'])->middleware('auth');
 
 
 

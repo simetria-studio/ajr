@@ -74,6 +74,11 @@ a:hover {
     background-repeat: no-repeat;
     background-size: 900px;
 } */
+
+.action form{
+    display: inline-block;
+}
+
 .calculadora {
     max-width: 100%;
     -moz-transition: all 0.5s;

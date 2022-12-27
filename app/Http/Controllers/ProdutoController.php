@@ -15,7 +15,7 @@ class ProdutoController extends Controller
     public function index()
     {
         $produtos = Produto::all();
-        return view('dashboard.products', ['produtos' => $produtos]);
+        return view('dashboard.produtos.produto', ['produtos' => $produtos]);
     }
 
     /**
@@ -25,7 +25,7 @@ class ProdutoController extends Controller
      */
     public function create()
     {
-        return view('dashboard.products');
+        return view('dashboard.produtos.create');
     }
 
     /**
@@ -64,7 +64,9 @@ class ProdutoController extends Controller
      */
     public function show($id)
     {
-        //
+        $produto = Produto::findOrFail($id);
+
+        return view('/dashboard', ['produto' => $produto]);
     }
 
     /**
@@ -75,7 +77,8 @@ class ProdutoController extends Controller
      */
     public function edit($id)
     {
-        //
+        $produto = Produto::findOrFail($id);
+        return view('dashboard.produtos.edit', ['produto' => $produto]);
     }
 
     /**
@@ -85,9 +88,10 @@ class ProdutoController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request)
     {
-        //
+        Produto::findOrFail($request->id)->update($request->all());
+        return redirect('/dashboard/produtos')->with('msg', 'Evento editado com sucesso!');
     }
 
     /**
@@ -98,6 +102,8 @@ class ProdutoController extends Controller
      */
     public function destroy($id)
     {
-        //
+        Produto::findOrFail($id)->delete();
+
+        return redirect('/dashboard')->with('msg', 'Evento excluído com sucesso!');
     }
 }

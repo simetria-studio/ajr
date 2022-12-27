@@ -23,4 +23,6 @@ class Produto extends Model
         'protocolo',
         'estados'
     ];
+
+    protected $guarded = [];
 }

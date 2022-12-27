@@ -8,7 +8,7 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'Laravel') }}</title>
+    <title> @yield('title')</title>
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
@@ -24,7 +24,7 @@
 
 <body>
     <header class="navbar  navbar-dark sticky-top bg-dark flex-md-nowrap p-0 shadow">
-        <a class="navbar-brand col-md-3 col-lg-2 me-0 px-3 fs-6" href="#">AJR Sistemas</a>
+        <a class="navbar-brand col-md-3 col-lg-2 me-0 px-3 fs-6" href="/dashboard">AJR Sistemas</a>
         <button class="navbar-toggler position-absolute d-md-none collapsed" type="button" data-bs-toggle="collapse"
             data-bs-target="#sidebarMenu" aria-controls="sidebarMenu" aria-expanded="false"
             aria-label="Toggle navigation">
@@ -56,29 +56,17 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="{{url('/dashboard/products')}}">
+                            <a class="nav-link" href="{{url('/dashboard/produtos')}}">
                                 <span data-feather="shopping-cart" class="align-text-bottom"></span>
                                 Produtos
                             </a>
+                            <ul class="nav">
+                                <li class="nav-item">
+                                    <a class="nav-link" href="/dashboard/produtos/create" >Criar Produto</a>                                 
+                                </li>
+                            </ul>
                         </li>
-                        {{-- <li class="nav-item">
-                            <a class="nav-link" href="#">
-                                <span data-feather="users" class="align-text-bottom"></span>
-                                Customers
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">
-                                <span data-feather="bar-chart-2" class="align-text-bottom"></span>
-                                Reports
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">
-                                <span data-feather="layers" class="align-text-bottom"></span>
-                                Integrations
-                            </a>
-                        </li> --}}
+                       
                     </ul>
                 </div>
             </nav>
@@ -94,10 +82,22 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.6.1.js"></script>
+    <script src="{{ asset('js/jquery.mask.js') }}"></script>
     <script src="https://cdn.jsdelivr.net/npm/feather-icons@4.28.0/dist/feather.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.4/dist/Chart.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/feather-icons@4.28.0/dist/feather.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            $('.cest').mask("00.000.00");
+            $('.ncm').mask("0000.00.00");
+            $('.aliquota').mask("000");
+            $('.mva').mask("000");
+            $('.fcp').mask("000");
+        });
 
+
+        // $('.cest').samask("00.000.00");
+    </script>
 
 </body>
 </html>
