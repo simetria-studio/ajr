@@ -3,6 +3,9 @@
     margin: 0;
     font-family: "Roboto", sans-serif;
 }
+header{
+    height: 60px;
+}
 a {
     text-decoration: none;
     color: #515152;
