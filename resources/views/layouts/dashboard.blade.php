@@ -46,7 +46,7 @@
     </header>
     <div class="container-fluid">
         <div class="row">
-            <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block bg-light sidebar collapse">
+            <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block bg-light sidebar collapse border-end">
                 <div class="position-sticky pt-3 sidebar-sticky">
                     <ul class="nav flex-column">
 
@@ -61,7 +61,7 @@
                             </strong>
                             <ul class="nav d-block fw-normal pb-2 small">
                                 <li class="nav-item">
-                                    <a class="nav-link active" aria-current="page" href="{{ route('usuarios') }}">
+                                    <a class="nav-link text-black opacity-75" aria-current="page" href="{{ route('usuarios') }}">
                                         <span data-feather="home" class="align-text-bottom"></span>
                                         Usuários
                                     </a>
@@ -80,10 +80,10 @@
                             </strong>
                             <ul class="nav d-block fw-normal pb-2 small">
                                 <li class="nav-item lh-1">
-                                    <a class="nav-link" href="{{ url('/dashboard/produtos') }}">Produtos</a>
+                                    <a class="nav-link text-black opacity-75" href="{{ url('/dashboard/produtos') }}">Produtos</a>
                                 </li>
                                 <li class="nav-item lh-1">
-                                    <a class="nav-link" href="/dashboard/produtos/create">Criar Produto</a>
+                                    <a class="nav-link text-black opacity-75" href="/dashboard/produtos/create">Criar Produto</a>
                                 </li>
                             </ul>
                         </li>
@@ -98,7 +98,7 @@
                             </strong>
                             <ul class="nav d-block fw-normal pb-2 small">
                                 <li class="nav-item lh-1">
-                                    <a class="nav-link" href="#">Estados</a>
+                                    <a class="nav-link text-black opacity-75" href="#">Estados</a>
                                 </li>
                             </ul>
                         </li>
