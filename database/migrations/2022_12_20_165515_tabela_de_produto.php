@@ -23,7 +23,9 @@ return new class extends Migration
             $table->string('aliquota');
             $table->string('mva');
             $table->string('fcp');
-            $table->string('ajustes');
+            $table->string('ajuste1');
+            $table->string('ajuste2');
+            $table->string('ajuste3');
             $table->string('pauta');
             $table->string('protocolo');
             $table->string('estados');

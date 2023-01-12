@@ -66,8 +66,20 @@
             </div>
             <div class="col-6 mb-3">
                 <div class="form-group">
-                    <label for="ajustes" class="form-label">Ajustes</label>
-                    <input type="text" id="ajustes" name="ajustes" value="{{ $produto->ajustes }}" class="form-control">
+                    <label for="ajuste1" class="form-label">Ajustes</label>
+                    <input type="text" id="ajuste1" name="ajuste1" value="{{ $produto->ajuste1 }}" class="form-control">
+                </div>
+            </div>
+            <div class="col-6 mb-3">
+                <div class="form-group">
+                    <label for="ajuste2" class="form-label">Ajustes</label>
+                    <input type="text" id="ajuste2" name="ajuste2" value="{{ $produto->ajuste2 }}" class="form-control">
+                </div>
+            </div>
+            <div class="col-6 mb-3">
+                <div class="form-group">
+                    <label for="ajuste3" class="form-label">Ajustes</label>
+                    <input type="text" id="ajuste3" name="ajuste3" value="{{ $produto->ajuste3 }}" class="form-control">
                 </div>
             </div>
             <div class="col-6 mb-3">

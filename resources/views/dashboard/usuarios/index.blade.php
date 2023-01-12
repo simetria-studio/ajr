@@ -1,4 +1,3 @@
-
 @extends('layouts.dashboard')
 
 @section('content')
@@ -13,16 +12,21 @@
                     <th scope="col">#</th>
                     <th scope="col">Nome</th>
                     <th scope="col">Email</th>
-                    <th scope="col">Telefone</th>
-
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                    <td>1,001</td>
-                    <td>random</td>
-                    <td>data</td>
-                    <td>placeholder</td>
+                @forelse ($usuarios as $usuario)
+                    <tr>
+                        <td>{{ $usuario->id }}</td>
+                        <td>{{ $usuario->name }}</td>
+                        <td>{{ $usuario->email }}</td>
+                    </tr>
+                @empty
+                    <tr>
+                        <td colspan="3">Nenhum usuário cadastrado</td>
+                    </tr>
+                @endforelse
+
             </tbody>
         </table>
     </div>

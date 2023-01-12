@@ -84,10 +84,22 @@
                     </div>
                 </div>
 
-                <div class="col-6 mb-3">
+                <div class="col-4 mb-3">
                     <div class="form-group">
-                        <label for="ajustes" class="form-label">Ajustes</label>
-                        <input type="text" id="ajustes" name="ajustes" class="form-control">
+                        <label for="ajuste1" class="form-label">Ajuste 1</label>
+                        <input type="number" id="ajuste1" name="ajuste1" class="form-control">
+                    </div>
+                </div>
+                <div class="col-4 mb-3">
+                    <div class="form-group">
+                        <label for="ajuste2" class="form-label">Ajuste 2</label>
+                        <input type="number" id="ajuste2" name="ajuste2" class="form-control">
+                    </div>
+                </div>
+                <div class="col-4 mb-3">
+                    <div class="form-group">
+                        <label for="ajuste3" class="form-label">Ajuste 3</label>
+                        <input type="number" id="ajuste3" name="ajuste3" class="form-control">
                     </div>
                 </div>
 

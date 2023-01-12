@@ -27,20 +27,19 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <th>00000001</th>
-                        <th>00000001</th>
-                        <th>Açucar refinado em embalagem de conteúdo superior a 5kg </th>
-                        <th>Produto Alimentícios</th>
-                        <th><a href="{{ route('detalhes') }}" type="button" class="btn btn-danger">escolher</a></th>
-                    </tr>
-                    <tr>
-                        <th>00000001</th>
-                        <th>00000001</th>
-                        <th>Açucar refinado em embalagem de conteúdo superior a 5kg </th>
-                        <th>Produto Alimentícios</th>
-                        <th><button class="btn btn-danger">escolher</button></th>
-                    </tr>
+                    @forelse ($produtos as $produto)
+                        <tr>
+                            <td>{{ $produto->cest }}</td>
+                            <td>{{ $produto->ncm }}</td>
+                            <td>{{ $produto->descricao }}</td>
+                            <td>{{ $produto->segmento }}</td>
+                            <td>
+                                <a href="/convenio/detalhes/{{ $produto->id }}" class="btn btn-danger">escolher</a>
+                            </td>
+                        </tr>
+                    @empty
+                    @endforelse
+
 
                 </tbody>
             </table>

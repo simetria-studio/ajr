@@ -46,7 +46,9 @@ class ProdutoController extends Controller
         $produto->aliquota = $request->aliquota;
         $produto->mva = $request->mva;
         $produto->fcp = $request->fcp;
-        $produto->ajustes = $request->ajustes;
+        $produto->ajuste1 = $request->ajuste1;
+        $produto->ajuste2 = $request->ajuste2;
+        $produto->ajuste3 = $request->ajuste3;
         $produto->pauta = $request->pauta;
         $produto->protocolo = $request->protocolo;
         $produto->estados = $request->estados;
@@ -66,7 +68,7 @@ class ProdutoController extends Controller
     {
         $produto = Produto::findOrFail($id);
 
-        return view('/dashboard', ['produto' => $produto]);
+        return response()->json($produto);
     }
 
     /**

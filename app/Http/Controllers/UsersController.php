@@ -2,20 +2,20 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Produto;
+use App\Models\User;
 use Illuminate\Http\Request;
 
-class DetalheConvinioController extends Controller
+class UsersController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function index($id)
+    public function index()
     {
-        $produto = Produto::find($id);
-        return view('pages.calculadoras.step-3', get_defined_vars() );
+        $usuarios = User::all();
+        return view('dashboard.usuarios.index', compact('usuarios') );
     }
 
     /**
@@ -47,9 +47,7 @@ class DetalheConvinioController extends Controller
      */
     public function show($id)
     {
-        $produtos = Produto::findOrFail($id);
-
-        return view('pages.calculadoras.step-3', ['produtos' => $produtos]);
+        //
     }
 
     /**

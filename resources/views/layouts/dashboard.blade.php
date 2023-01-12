@@ -50,7 +50,7 @@
                 <div class="position-sticky pt-3 sidebar-sticky">
                     <ul class="nav flex-column">
                         <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="#">
+                            <a class="nav-link active" aria-current="page" href="{{ route('usuarios') }}">
                                 <span data-feather="home" class="align-text-bottom"></span>
                                 Usuários
                             </a>
@@ -62,11 +62,11 @@
                             </a>
                             <ul class="nav">
                                 <li class="nav-item">
-                                    <a class="nav-link" href="/dashboard/produtos/create" >Criar Produto</a>                                 
+                                    <a class="nav-link" href="/dashboard/produtos/create" >Criar Produto</a>
                                 </li>
                             </ul>
                         </li>
-                       
+
                     </ul>
                 </div>
             </nav>
@@ -86,7 +86,8 @@
     <script src="https://cdn.jsdelivr.net/npm/feather-icons@4.28.0/dist/feather.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.4/dist/Chart.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/feather-icons@4.28.0/dist/feather.min.js"></script>
-    <script>
+   @yield('js')
+   <script>
         $(document).ready(function() {
             $('.cest').mask("00.000.00");
             $('.ncm').mask("0000.00.00");

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Produto;
 use Illuminate\Http\Request;
 
 class SubstituicaoTributariaController extends Controller
@@ -13,7 +14,20 @@ class SubstituicaoTributariaController extends Controller
      */
     public function index()
     {
-        return view('pages.calculadoras.step-1');
+        $search = request('search');
+
+        if ($search) {
+            $produtos = Produto::where(
+                [
+                    ['ncm', 'like', '%' . $search . '%'],
+                ]
+            )
+                ->orWhere([['cest', 'like', '%' . $search . '%'],])->paginate(10);
+        } else {
+            $produtos = Produto::paginate(10);
+        }
+
+        return view('pages.calculadoras.step-1', ['produtos' => $produtos, 'search' => $search]);
     }
 
     /**

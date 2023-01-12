@@ -18,7 +18,9 @@ class Produto extends Model
         'aliquota',
         'mva',
         'fcp',
-        'ajustes',
+        'ajuste1',
+        'ajuste2',
+        'ajuste3',
         'pauta',
         'protocolo',
         'estados'

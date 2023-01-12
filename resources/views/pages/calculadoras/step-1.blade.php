@@ -18,29 +18,15 @@
             </div>
             <div class="col-12 d-flex justify-content-center mb-5 ">
                 <div class="d-flex flex-wrap justify-content-center  ">
-                    <div class="input-group">
-                        <input type="text" class="form-control " placeholder="Digite sua CEST/NCM" maxlength="8"
-                            size="8">
-                        <a href="{{ route('convenio') }}" type="button" class="btn btn-danger">BUSCAR</a>
-                    </div>
 
+                    <form action="/convenio" method="GET">
+                        <div class="input-group col-4">
+                            <input type="text" class="form-control" name="search" placeholder="Digite sua CEST/NCM">
+                            <button type="submit" class="btn btn-danger">BUSCAR</button>
+                        </div>
+                    </form>
 
-                    <div class="d-flex my-3 ">
-                        <div class="form-check mx-2">
-                            <input class="form-check-input" name="busca" type="radio" id="cest" checked>
-                            <label class="form-check-label" for="cest">
-                                CEST
-                            </label>
-                        </div>
-                        <div class="form-check mx-2">
-                            <input class="form-check-input" name="busca" type="radio" id="ncm">
-                            <label class="form-check-label" for="ncm">
-                                NCM
-                            </label>
-                        </div>
-                    </div>
                 </div>
-
             </div>
         </div>
 
