@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Produto;
 use Illuminate\Http\Request;
 
+
 class ProdutoController extends Controller
 {
     /**
@@ -14,8 +15,12 @@ class ProdutoController extends Controller
      */
     public function index()
     {
-        $produtos = Produto::all();
-        return view('dashboard.produtos.produto', ['produtos' => $produtos]);
+        $produtos = Produto::paginate(10);
+        // $produtos = Produto::all();
+
+        return view('dashboard.produtos.produto', [
+            'produtos' => $produtos
+        ]);
     }
 
     /**
@@ -55,7 +60,7 @@ class ProdutoController extends Controller
 
         $produto->save();
 
-        return redirect('/dashboard')->with('msg', 'Produto cadastrado com sucesso!');
+        return redirect('/dashboard/produtos')->with('mensagem', 'Produto cadastrado com sucesso!');
     }
 
     /**
@@ -93,7 +98,7 @@ class ProdutoController extends Controller
     public function update(Request $request)
     {
         Produto::findOrFail($request->id)->update($request->all());
-        return redirect('/dashboard/produtos')->with('msg', 'Evento editado com sucesso!');
+        return redirect('/dashboard/produtos')->with('mensagem', 'Produto editado com sucesso!');
     }
 
     /**
@@ -106,6 +111,6 @@ class ProdutoController extends Controller
     {
         Produto::findOrFail($id)->delete();
 
-        return redirect('/dashboard')->with('msg', 'Evento excluído com sucesso!');
+        return redirect('/dashboard/produtos')->with('delete', 'Produto excluído com sucesso!');
     }
 }

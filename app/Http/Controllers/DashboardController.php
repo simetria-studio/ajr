@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Produto;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class DashboardController extends Controller
@@ -13,7 +15,9 @@ class DashboardController extends Controller
      */
     public function index()
     {
-        return view('dashboard.dashboard');
+        $usuarios = User::paginate(10);
+        $produtos = Produto::paginate(10);
+        return view('dashboard.dashboard', get_defined_vars());
     }
 
     /**

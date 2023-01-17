@@ -6,12 +6,22 @@
     <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
         <h2>Produtos</h2>
     </div>
-
+    @if (session('mensagem'))
+        <div class="alert alert-success" role="alert">
+            <p>{{ session('mensagem') }}</p>
+        </div>
+    @endif
+    @if (session('delete'))
+        <div class="alert alert-danger" role="alert">
+            <p>{{ session('delete') }}</p>
+        </div>
+    @endif
     <div class="table-responsive">
         <table class="table table-striped table-sm">
             <thead>
                 <tr>
 
+                    <th scope="col">ID</th>
                     <th scope="col">Produto</th>
                     <th scope="col">CEST</th>
                     <th scope="col">NCM</th>
@@ -23,6 +33,7 @@
                 @forelse ($produtos as $produto)
                     <tr>
 
+                        <td>{{ $produto->id }}</td>
                         <td>{{ $produto->nome_produto }}</td>
                         <td>{{ $produto->cest }}</td>
                         <td>{{ $produto->ncm }}</td>
@@ -48,6 +59,8 @@
                 @endforelse
             </tbody>
         </table>
+
+        {{ $produtos->links() }}
 
     </div>
     <div>
