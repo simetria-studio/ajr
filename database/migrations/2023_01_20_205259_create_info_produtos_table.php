@@ -13,15 +13,18 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('produtos', function (Blueprint $table) {
+        Schema::create('info_produtos', function (Blueprint $table) {
             $table->id();
-            $table->string('nome_produto');
-            $table->string('cest');
-            $table->string('ncm');
-            $table->string('segmento');
-            $table->string('descricao');
+            $table->integer('produto_id')->nullable();
             $table->integer('estado_id')->nullable();
-            $table->integer('status')->default(1)->nullable();
+            $table->string('aliquota');
+            $table->string('mva');
+            $table->string('fcp');
+            $table->string('ajuste1');
+            $table->string('ajuste2');
+            $table->string('ajuste3');
+            $table->string('pauta');
+            $table->string('protocolo');
             $table->timestamps();
         });
     }
@@ -33,6 +36,6 @@ return new class extends Migration
      */
     public function down()
     {
-        //
+        Schema::dropIfExists('info_produtos');
     }
 };

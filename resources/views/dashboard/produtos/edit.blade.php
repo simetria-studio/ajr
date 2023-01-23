@@ -4,10 +4,10 @@
 
 @section('content')
 <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-    <h2 class="text-secondary">Alterar informações do produto</h2>
+    <h2 class="">Alterar informações do produto</h2>
 </div>
 
-<div class="col-6 offset-3  my-5">
+<div class="col-6 offset-2  my-5">
     <form action="/dashboard/produtos/update/{{$produto->id}}" method="POST">
         @csrf
         @method('PUT')
@@ -40,64 +40,65 @@
                 </div>
 
             </div>
-            <div class="col-6 mb-3">
-                <div class="form-group">
-                    <label for="descricao" class="form-label">Descrição</label>
-                    <input type="text" id="descricao" name="descricao" value="{{ $produto->descricao }}" class="form-control">
-                </div>
-            </div>
-            <div class="col-6 mb-3">
+
+            <div class="col-4 mb-3">
                 <div class="form-group">
                     <label for="aliquota" class="form-label">Alíquota</label>
                     <input type="text" id="aliquota" name="aliquota" value="{{ $produto->aliquota }}" class="form-control">
                 </div>
             </div>
-            <div class="col-6 mb-3">
+            <div class="col-4 mb-3">
                 <div class="form-group">
                     <label for="mva" class="form-label">MVA</label>
                     <input type="text" id="mva" name="mva" value="{{ $produto->mva }}" class="form-control">
                 </div>
             </div>
-            <div class="col-6 mb-3">
+            <div class="col-4 mb-3">
                 <div class="form-group">
                     <label for="fcp" class="form-label">FCP</label>
                     <input type="text" id="fcp" name="fcp" value="{{ $produto->fcp }}" class="form-control">
                 </div>
             </div>
-            <div class="col-6 mb-3">
+            <div class="col-4 mb-3">
                 <div class="form-group">
                     <label for="ajuste1" class="form-label">Ajustes</label>
                     <input type="text" id="ajuste1" name="ajuste1" value="{{ $produto->ajuste1 }}" class="form-control">
                 </div>
             </div>
-            <div class="col-6 mb-3">
+            <div class="col-4 mb-3">
                 <div class="form-group">
                     <label for="ajuste2" class="form-label">Ajustes</label>
                     <input type="text" id="ajuste2" name="ajuste2" value="{{ $produto->ajuste2 }}" class="form-control">
                 </div>
             </div>
-            <div class="col-6 mb-3">
+            <div class="col-4 mb-3">
                 <div class="form-group">
                     <label for="ajuste3" class="form-label">Ajustes</label>
                     <input type="text" id="ajuste3" name="ajuste3" value="{{ $produto->ajuste3 }}" class="form-control">
                 </div>
             </div>
-            <div class="col-6 mb-3">
+            <div class="col-4 mb-3">
                 <div class="form-group">
                     <label for="pauta" class="form-label">Pauta Fiscal</label>
                     <input type="text" id="pauta" name="pauta" value="{{ $produto->pauta }}" class="form-control">
                 </div>
             </div>
-            <div class="col-6 mb-3">
+            <div class="col-4 mb-3">
                 <div class="form-group">
                     <label for="protocolo" class="form-label">Protocolo / Convênio</label>
                     <input type="text" id="protocolo" name="protocolo" value="{{ $produto->protocolo }}" class="form-control">
                 </div>
             </div>
-            <div class="col-6 mb-3">
+            <div class="col-4 mb-3">
                 <div class="form-group">
                     <label for="estados" class="form-label">Estado</label>
                     <input type="text" id="estados" name="estados" value="{{ $produto->estados }}" class="form-control">
+                </div>
+            </div>
+            <div class="col-12 mb-3">
+                <div class="form-group">
+                    <label for="descricao" class="form-label">Descrição</label>
+                    <textarea type="text" rows="5" id="descricao" name="descricao"  class="form-control">{{ $produto->descricao }}</textarea>
                 </div>
             </div>
 

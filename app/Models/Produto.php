@@ -15,16 +15,6 @@ class Produto extends Model
         'ncm',
         'segmento',
         'descricao',
-        'aliquota',
-        'mva',
-        'fcp',
-        'ajuste1',
-        'ajuste2',
-        'ajuste3',
-        'pauta',
-        'protocolo',
-        'estados'
     ];
 
-    protected $guarded = [];
 }

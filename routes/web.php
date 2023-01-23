@@ -23,9 +23,6 @@ use App\Http\Controllers\SubstituicaoTributariaController;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
-
-
 Auth::routes();
 
 Route::get('teste', [TesteController::class, 'index'])->name('teste');
@@ -36,14 +33,22 @@ Route::get('/', function () {
 
 Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard')->middleware('auth');
 
-Route::get('/dashboard/produtos', [ProdutoController::class, 'index'])->name('produtos')->middleware('auth');
+Route::get('/dashboard/produtos', [ProdutoController::class, 'index'])->name('produto.index')->middleware('auth');
 Route::get('/dashboard/produtos/create', [ProdutoController::class, 'create'])->middleware('auth');
-Route::get('/dashboard/produtos/{id}', [ProdutoController::class, 'show'])->middleware('auth');
+Route::get('/dashboard/produtos/show/{id}', [ProdutoController::class, 'show'])->name('produto.show')->middleware('auth');
 Route::post('/dashboard/produtos', [ProdutoController::class, 'store'])->middleware('auth');
 Route::delete('/dashboard/produtos/{id}', [ProdutoController::class, 'destroy'])->middleware('auth');
 Route::get('/dashboard/produtos/edit/{id}', [ProdutoController::class, 'edit'])->middleware('auth');
 Route::put('/dashboard/produtos/update/{id}', [ProdutoController::class, 'update'])->middleware('auth');
+Route::post('/dashboard/produtos/delete/', [ProdutoController::class, 'destroy'])->name('produto.delete')->middleware('auth');
 
+Route::prefix('dashboard')->middleware(['auth'])->group(function () {
+    Route::get('/produto/create-info', [ProdutoController::class, 'createInfo'])->name('info.create');
+    Route::post('/produto/store-info', [ProdutoController::class, 'storeInfo'])->name('info.store');
+
+
+
+});
 Route::get('/dashboard/users', [UsersController::class, 'index'])->name('usuarios')->middleware('auth');
 
 
@@ -53,3 +58,8 @@ Route::get('/icms-interestadual', [InterestadualController::class, 'index'])->na
 Route::get('/substituicao-tributaria', [SubstituicaoTributariaController::class, 'index'])->name('substituicao-tributaria');
 Route::get('/convenio', [ConvenioController::class, 'index'])->name('convenio');
 Route::get('/convenio/detalhes/{id}', [DetalheConvinioController::class, 'index'])->name('detalhes');
+
+Route::get('/teste', [ProdutoController::class, 'teste'])->name('teste');
+Route::get('/teste2', [ProdutoController::class, 'teste2'])->name('teste2');
+
+Route::post('info-produto-render', [DetalheConvinioController::class, 'filtroEstado'])->name('info.produto.render');

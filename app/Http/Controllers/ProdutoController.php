@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\InfoProduto;
+use App\Models\State;
 use App\Models\Produto;
 use Illuminate\Http\Request;
 
@@ -30,7 +32,8 @@ class ProdutoController extends Controller
      */
     public function create()
     {
-        return view('dashboard.produtos.create');
+        $estados = State::all();
+        return view('dashboard.produtos.create', get_defined_vars());
     }
 
     /**
@@ -41,24 +44,7 @@ class ProdutoController extends Controller
      */
     public function store(Request $request)
     {
-        $produto = new Produto;
-
-        $produto->nome_produto = $request->nome_produto;
-        $produto->cest = $request->cest;
-        $produto->ncm = $request->ncm;
-        $produto->segmento = $request->segmento;
-        $produto->descricao = $request->descricao;
-        $produto->aliquota = $request->aliquota;
-        $produto->mva = $request->mva;
-        $produto->fcp = $request->fcp;
-        $produto->ajuste1 = $request->ajuste1;
-        $produto->ajuste2 = $request->ajuste2;
-        $produto->ajuste3 = $request->ajuste3;
-        $produto->pauta = $request->pauta;
-        $produto->protocolo = $request->protocolo;
-        $produto->estados = $request->estados;
-
-        $produto->save();
+        Produto::create($request->all());
 
         return redirect('/dashboard/produtos')->with('mensagem', 'Produto cadastrado com sucesso!');
     }
@@ -71,9 +57,11 @@ class ProdutoController extends Controller
      */
     public function show($id)
     {
-        $produto = Produto::findOrFail($id);
 
-        return response()->json($produto);
+        $produtos = Produto::findOrFail($id);
+
+        // return response()->json($produto);
+        return view('dashboard.produtos.show', get_defined_vars());
     }
 
     /**
@@ -107,10 +95,36 @@ class ProdutoController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Request $request)
     {
-        Produto::findOrFail($id)->delete();
+        Produto::findOrFail($request->id)->delete();
 
         return redirect('/dashboard/produtos')->with('delete', 'Produto excluído com sucesso!');
+    }
+    public function createInfo()
+    {
+        $estados = State::all();
+        $produtos = Produto::all();
+        return view('dashboard.produtos.create-info', get_defined_vars());
+    }
+
+    public function storeInfo(Request $request)
+    {
+        InfoProduto::create($request->all());
+
+        return redirect()->back();
+
+    }
+
+    public function teste()
+    {
+        $produto = Produto::with('estado')->get();
+        dd($produto);
+    }
+
+    public function teste2()
+    {
+        $produto = Produto::where('estado_id', 1)->get();
+        dd($produto);
     }
 }

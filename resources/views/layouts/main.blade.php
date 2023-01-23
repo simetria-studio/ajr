@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 
 <head>
     <meta charset="UTF-8">
@@ -29,26 +29,11 @@
                 </button>
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-
-                        <li class="nav-item dropdown">
-                            <a class="nav-link text-primary   dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
-                                aria-expanded="false">
-                                Simulador de Cálculo Substituição
-                            </a>
-                            <ul class="dropdown-menu">
-                                <li><a class="dropdown-item " href="{{ route('icms-interna') }}">Simulação Interna</a>
-                                </li>
-                                <li><a class="dropdown-item " href="{{ route('icms-interestadual') }}">Simulação
-                                        Interestadual</a></li>
-                            </ul>
+                        <li class="nav-item ">
+                            <a class="nav-link" href="{{ route('icms-interna') }}">Simulação Interna</a>
                         </li>
-
-                        <li class="nav-item">
-                            <a class="nav-link " href="#">Simulador de de Cálculo do Diferencial de Alíquotas</a>
-                        </li>
-
-                        <li class="nav-item">
-                            <a class="nav-link " href="#">Tributação de ICMS por NCM</a>
+                        <li>
+                            <a class="nav-link" href="{{ route('icms-interestadual') }}">Simulação Interestadual</a>
                         </li>
                     </ul>
 
@@ -58,7 +43,8 @@
                                 @auth
                                     <a href="{{ url('/dashboard') }}"
                                         class="text-sm text-gray-700 dark:text-gray-500 underline">
-                                        {{ Auth::user()->name }}</a>
+                                        Dashboard
+                                    </a>
                                 @else
                                     <a href="{{ route('login') }}"
                                         class="text-sm text-gray-700 dark:text-gray-500 underline">Entrar</a>
@@ -82,16 +68,7 @@
                         <h1 class="mb-5">
                             Substituição <span class="text-danger">Tributária </span>
                         </h1>
-
                         @yield('button')
-
-                        {{-- <a type="button" href="{{ route('substituicao-tributaria') }}"
-                            class=" btn btn-danger shadow btn-lg">Acesse
-                            Agora
-                        </a>  --}}
-
-
-
                     </div>
                 </div>
             </div>
@@ -114,18 +91,14 @@
                 </ul>
                 <p class="text-center text-muted">&copy; 2022 Ajr Sistemas</p>
             </div>
-
         </footer>
     @show
 
-
-
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
-    <script src="https://code.jquery.com/jquery-3.6.1.js" integrity="sha256-3zlB5s2uwoUzrXK3BT7AX3FyvojsraNFxCc2vC/7pNI="
-        crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.6.1.js"></script>
     <script src="{{ url('js/script.js') }}"></script>
+    @yield('js')
 
 </body>
-
 </html>

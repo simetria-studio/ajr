@@ -9,42 +9,21 @@
     </div>
 
     <div class=" col-6 offset-2 my-5">
-        <form action="/dashboard/produtos" method="POST">
+        <form action="{{ route('info.store') }}" method="POST">
             @csrf
             <div class="row">
                 <div class="col-6 mb-3">
                     <div class="form-group">
-                        <label for="produto" class="form-label">Nome do Produto</label>
-                        <input type="text" id="produto" name="nome_produto" class="form-control" required
-                            placeholder="Nome ou tipo de produto">
+                        <label for="estados" class="form-label">Produto</label>
+                        <select class="form-select" aria-label="Default select example" name="produto_id">
+                            <option selected>Selecione o produto</option>
+                            @foreach ($produtos as $produto)
+                            <option value="{{ $produto->id }}">{{ $produto->nome_produto }}</option>
+                            @endforeach
+
+                          </select>
                     </div>
                 </div>
-
-                <div class="col-6 mb-3">
-                    <div class="form-group">
-                        <label for="segmento" class="form-label">Segmento</label>
-                        <input type="text" id="segmento" name="segmento" class="form-control" required
-                            placeholder="Segmento">
-                    </div>
-                </div>
-
-                <div class="col-6 mb-3">
-                    <div class="form-group">
-                        <label for="cest" class="form-label">CEST</label>
-                        <input type="text" id="cest" name="cest" class="form-control cest" required
-                            placeholder="00.000.00">
-                    </div>
-                </div>
-
-                <div class="col-6 mb-3">
-                    <div class="form-group">
-                        <label for="ncm" class="form-label ">NCM</label>
-                        <input type="text" id="ncm" name="ncm" class="form-control ncm" required
-                            placeholder="0000.00.00">
-                    </div>
-                </div>
-
-
 
 
                 <div class="col-4 mb-3">
@@ -111,13 +90,19 @@
                     </div>
                 </div>
 
-                <div class="col-12  mb-3">
+                <div class="col-4 mb-3">
                     <div class="form-group">
-                        <label for="descricao" class="form-label">Descrição</label>
-                        <textarea  rows="5" id="descricao" name="descricao" class="form-control" required
-                        placeholder="Breve descrição do produto"></textarea>
+                        <label for="estados" class="form-label">Estado</label>
+                        <select class="form-select" aria-label="Default select example" name="estado_id">
+                            <option selected>Selecione o estado</option>
+                            @foreach ($estados as $estado)
+                            <option value="{{ $estado->id }}">{{ $estado->name }}</option>
+                            @endforeach
+
+                          </select>
                     </div>
                 </div>
+
 
                 <div class="mb-3">
                     <button class="btn btn-lg btn-success float-end">Cadastrar</button>

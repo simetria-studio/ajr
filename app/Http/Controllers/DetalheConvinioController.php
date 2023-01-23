@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\State;
 use App\Models\Produto;
+use App\Models\InfoProduto;
 use Illuminate\Http\Request;
 
 class DetalheConvinioController extends Controller
@@ -15,7 +17,18 @@ class DetalheConvinioController extends Controller
     public function index($id)
     {
         $produto = Produto::find($id);
+        $info = InfoProduto::with('estado')->where('produto_id', $id)->first();
+        $estados = State::all();
         return view('pages.calculadoras.step-3', get_defined_vars() );
+    }
+
+    public function filtroEstado(Request $request)
+    {
+        $produto = Produto::find($request->produto);
+        $info = InfoProduto::with('estado')->where('produto_id', $request->produto)->where('estado_id', $request->estado)->first();
+        $view = view('includes.info-produto', get_defined_vars())->render();
+
+        return response()->json([get_defined_vars()]);
     }
 
     /**
@@ -48,8 +61,9 @@ class DetalheConvinioController extends Controller
     public function show($id)
     {
         $produtos = Produto::findOrFail($id);
+        $estados = State::all();
 
-        return view('pages.calculadoras.step-3', ['produtos' => $produtos]);
+        return view('pages.calculadoras.step-3', get_defined_vars());
     }
 
     /**
