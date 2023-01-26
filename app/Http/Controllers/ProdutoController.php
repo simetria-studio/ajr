@@ -17,12 +17,14 @@ class ProdutoController extends Controller
      */
     public function index()
     {
-        $produtos = Produto::paginate(10);
-        // $produtos = Produto::all();
 
-        return view('dashboard.produtos.produto', [
-            'produtos' => $produtos
-        ]);
+        $produto = Produto::all();
+        $info = InfoProduto::with('estado')->with('produto')->paginate(10);
+        $estados = State::all();
+
+
+
+        return view('dashboard.produtos.produto', get_defined_vars());
     }
 
     /**
@@ -32,6 +34,7 @@ class ProdutoController extends Controller
      */
     public function create()
     {
+
         $estados = State::all();
         return view('dashboard.produtos.create', get_defined_vars());
     }

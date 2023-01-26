@@ -55,7 +55,7 @@
                             <ul class="nav d-block fw-normal pb-2 small">
                                 <li class="nav-item">
                                     <a class="nav-link text-black opacity-75 " href="{{ route('usuarios') }}">
-                                        <p class="fs-6">Usuários</p>
+                                        <p class="fs-6">Lista de Usuários</p>
                                     </a>
                                 </li>
                             </ul>
@@ -72,13 +72,13 @@
                             </strong>
                             <ul class="nav d-block fw-normal pb-2 small">
                                 <li class="nav-item lh-1">
-                                    <a class="nav-link text-black opacity-75 fs-6" href="{{ url('/dashboard/produtos') }}">Produtos</a>
+                                    <a class="nav-link text-black opacity-75 fs-6" href="{{ url('/dashboard/produtos') }}">Lista de Produtos</a>
                                 </li>
                                 <li class="nav-item lh-1">
-                                    <a class="nav-link text-black opacity-75 fs-6" href="/dashboard/produtos/create">Criar Produto</a>
+                                    <a class="nav-link text-black opacity-75 fs-6" href="/dashboard/produtos/create">Criar um Produto</a>
                                 </li>
                                 <li class="nav-item lh-1">
-                                    <a class="nav-link text-black opacity-75 fs-6" href="{{ route('info.create') }}">Criar Info</a>
+                                    <a class="nav-link text-black opacity-75 fs-6" href="{{ route('info.create') }}">Cadastrar Info...</a>
                                 </li>
                             </ul>
                         </li>
@@ -93,7 +93,10 @@
                             </strong>
                             <ul class="nav d-block fw-normal pb-2 small">
                                 <li class="nav-item lh-1">
-                                    <a class="nav-link text-black opacity-75 fs-6" href="#">Estados</a>
+                                    <a class="nav-link text-black opacity-75 fs-6" href="{{ route('estados.index') }}">Lista de Estados</a>
+                                </li>
+                                <li class="nav-item lh-1">
+                                    <a class="nav-link text-black opacity-75 fs-6" href="{{ route('estados.create') }}">Cadastar estado</a>
                                 </li>
                             </ul>
                         </li>

@@ -25,19 +25,21 @@
                     <th scope="col">CEST</th>
                     <th scope="col">NCM</th>
                     <th scope="col">Segmento</th>
+                    <th scope="col">Estado</th>
                     <th scope="col">Ação</th>
                 </tr>
             </thead>
             <tbody>
-                @forelse ($produtos as $produto)
+                @forelse ($info as $i)
                     <tr>
-                        <td>{{ $produto->id }}</td>
-                        <td>{{ $produto->nome_produto }}</td>
-                        <td>{{ $produto->cest }}</td>
-                        <td>{{ $produto->ncm }}</td>
-                        <td>{{ $produto->segmento }}</td>
+                        <td>{{ $i->produto->id }}</td>
+                        <td>{{ $i->produto->nome_produto }}</td>
+                        <td>{{ $i->produto->cest }}</td>
+                        <td>{{ $i->produto->ncm }}</td>
+                        <td>{{ $i->produto->segmento }}</td>
+                        <td>{{ $i->estado->name }}</td>
                         <td class="d-flex justify-content-around">
-                            <a href="/dashboard/produtos/show/{{ $produto->id }}" class="btn btn-info text-white"
+                            <a href="/dashboard/produtos/show/{{ $i->id }}" class="btn btn-info text-white"
                                 type="button">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
                                     class="bi bi-eye" viewBox="0 0 16 16">
@@ -47,7 +49,7 @@
                                         d="M8 5.5a2.5 2.5 0 1 0 0 5 2.5 2.5 0 0 0 0-5zM4.5 8a3.5 3.5 0 1 1 7 0 3.5 3.5 0 0 1-7 0z" />
                                 </svg>
                             </a>
-                            <a href="/dashboard/produtos/edit/{{ $produto->id }}" class="btn btn-primary">
+                            <a href="/dashboard/produtos/edit/{{ $i->id }}" class="btn btn-primary">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
                                     class="bi bi-pencil-square" viewBox="0 0 16 16">
                                     <path
@@ -56,19 +58,9 @@
                                         d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z" />
                                 </svg>
                             </a>
-                            {{-- <form action="/dashboard/produtos/{{ $produto->id }}" method="POST">
-                                @csrf
-                                @method('DELETE')
-                                <button type="submit" class=" btn btn-danger">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
-                                        fill="currentColor" class="bi bi-trash3" viewBox="0 0 16 16">
-                                        <path
-                                            d="M6.5 1h3a.5.5 0 0 1 .5.5v1H6v-1a.5.5 0 0 1 .5-.5ZM11 2.5v-1A1.5 1.5 0 0 0 9.5 0h-3A1.5 1.5 0 0 0 5 1.5v1H2.506a.58.58 0 0 0-.01 0H1.5a.5.5 0 0 0 0 1h.538l.853 10.66A2 2 0 0 0 4.885 16h6.23a2 2 0 0 0 1.994-1.84l.853-10.66h.538a.5.5 0 0 0 0-1h-.995a.59.59 0 0 0-.01 0H11Zm1.958 1-.846 10.58a1 1 0 0 1-.997.92h-6.23a1 1 0 0 1-.997-.92L3.042 3.5h9.916Zm-7.487 1a.5.5 0 0 1 .528.47l.5 8.5a.5.5 0 0 1-.998.06L5 5.03a.5.5 0 0 1 .47-.53Zm5.058 0a.5.5 0 0 1 .47.53l-.5 8.5a.5.5 0 1 1-.998-.06l.5-8.5a.5.5 0 0 1 .528-.47ZM8 4.5a.5.5 0 0 1 .5.5v8.5a.5.5 0 0 1-1 0V5a.5.5 0 0 1 .5-.5Z" />
-                                    </svg>
-                                </button>
-                            </form> --}}
 
-                            <button type="button" data-id="{{ $produto->id }}" class="btn-del btn btn-danger">
+
+                            <button type="button" data-id="{{ $i->id }}" class="btn-del btn btn-danger">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
                                     class="bi bi-trash3" viewBox="0 0 16 16">
                                     <path
@@ -86,104 +78,10 @@
             </tbody>
         </table>
 
-        {{ $produtos->links() }}
+         {{ $info->links() }}
 
     </div>
-
-
-
-
-
-
-
-    {{-- <div>
-        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h1 class="modal-title fs-5" id="exampleModalLabel">{{ $produto->nome_produto ?? '' }}</h1>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                    </div>
-                    <div class="modal-body">
-                        <div class="d-flex justify-content-around">
-                            <div>
-                                <p>Produto :</p>
-                                <p>CEST :</p>
-                                <p>NCM :</p>
-                                <p>Segmento :</p>
-                                <p>Descrição :</p>
-                                <p>Alíquota :</p>
-                                <p>MVA :</p>
-                                <p>FCP :</p>
-                                <p>Ajuste 1 :</p>
-                                <p>Ajuste 2 :</p>
-                                <p>Ajuste 3 :</p>
-                                <p>Pauta Fiscal :</p>
-                                <p>Protocolo / Convênio :</p>
-                                <p>Estado :</p>
-                            </div>
-                            <div>
-                                <p id="produto"></p>
-                                <p id="cest"></p>
-                                <p id="ncm"></p>
-                                <p id="segmento"></p>
-                                <p id="descricao"></p>
-                                <p id="aliquota"></p>
-                                <p id="mva"></p>
-                                <p id="fcp"></p>
-                                <p id="ajuste1"></p>
-                                <p id="ajuste2"></p>
-                                <p id="ajuste3"></p>
-                                <p id="pauta"></p>
-                                <p id="protocolo"></p>
-                                <p id="estados"></p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
-                    </div>
-
-
-                </div>
-            </div>
-        </div>
-    </div> --}}
-
 @endsection
-{{-- @section('js')
-
-    <script>
-        $(".edit").click(function() {
-            var id = $(this).data('id');
-            $.ajax({
-                url: '/dashboard/produtos/' + id,
-                type: 'GET',
-                dataType: 'json',
-                success: function(data) {
-                    console.log(data);
-                    $("#exampleModalLabel").html(data.nome_produto);
-                    $("#produto").html(data.nome_produto);
-                    $("#cest").html(data.cest);
-                    $("#ncm").html(data.ncm);
-                    $("#segmento").html(data.segmento);
-                    $("#descricao").html(data.descricao);
-                    $("#aliquota").html(data.aliquota);
-                    $("#mva").html(data.mva);
-                    $("#fcp").html(data.fcp);
-                    $("#ajuste1").html(data.ajuste1);
-                    $("#ajuste2").html(data.ajuste2);
-                    $("#ajuste3").html(data.ajuste3);
-                    $("#pauta").html(data.pauta);
-                    $("#protocolo").html(data.protocolo);
-                    $("#estados").html(data.estados);
-                }
-            });
-        });
-    </script>
-
-@endsection --}}
-
 @section('js')
     <script>
         $(document).on('click', '.btn-del', function() {

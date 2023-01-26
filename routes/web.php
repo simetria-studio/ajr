@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\TesteController;
 use App\Http\Controllers\UsersController;
+use App\Http\Controllers\EstadoController;
 use App\Http\Controllers\ProdutoController;
 use App\Http\Controllers\ConvenioController;
 use App\Http\Controllers\DashboardController;
@@ -43,10 +44,13 @@ Route::put('/dashboard/produtos/update/{id}', [ProdutoController::class, 'update
 Route::post('/dashboard/produtos/delete/', [ProdutoController::class, 'destroy'])->name('produto.delete')->middleware('auth');
 
 Route::prefix('dashboard')->middleware(['auth'])->group(function () {
+    //Produtos
     Route::get('/produto/create-info', [ProdutoController::class, 'createInfo'])->name('info.create');
     Route::post('/produto/store-info', [ProdutoController::class, 'storeInfo'])->name('info.store');
-
-
+    //Estado
+    Route::get('/estado', [EstadoController::class, 'index'])->name('estados.index');
+    Route::get('/estado/create', [EstadoController::class, 'create'])->name('estados.create');
+    Route::post('/estado/store', [EstadoController::class, 'store'])->name('estados.store');
 
 });
 Route::get('/dashboard/users', [UsersController::class, 'index'])->name('usuarios')->middleware('auth');

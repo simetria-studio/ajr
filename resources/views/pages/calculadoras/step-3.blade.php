@@ -8,8 +8,8 @@
 
             <div class="col-4">
                 <div class="border estado  border-dark border-opacity-50 rounded text-center p-3 mb-3 shadow">
-                 <span class="fw-semibold">Você está visualizando</span>
-                    <h4 class="fw-bold text-danger">{{ $info->estado->name ?? '' }}</h4>
+                    <span class="fw-semibold">Você está visualizando</span>
+                    <h4 class="fw-bold text-danger estados">{{ $info->estado->name ?? '' }}</h4>
                 </div>
                 <div class="mb-3 shadow">
                     <div class="border  border-danger text-center bg-danger bg-opacity-50 p-3 rounded-top">
@@ -52,7 +52,7 @@
                 </div>
 
                 <div class="p-3 border border-dark border-opacity-50 shadow rounded-bottom pai">
-                    {{-- <div class="d-flex info">
+                    <div class="d-flex info">
                         <div class="w-50  d-flex">
                             <div class="p-3">
                                 <div class="text-center mb-3">
@@ -108,7 +108,7 @@
                                 </div>
                             </div>
                         </div>
-                    </div> --}}
+                    </div>
                 </div>
             </div>
 
@@ -127,6 +127,7 @@
             $('.select-estado').click(function() {
                 var produto = $(this).data('produto');
                 var estado = $(this).data('estado');
+                $('.estados').empty();
                 $.ajax({
                     url: "{{ route('info.produto.render') }}",
                     type: "POST",
@@ -137,9 +138,18 @@
                     },
                     success: function(data) {
                         console.log(data);
-
+                        $('.estados').append(`<span>${data[0].info['estado'].name}</span>`);
                         $('.pai').html(data[0].view);
 
+                    },
+                    error: function(error) {
+                        $('.pai').empty();
+                        Swal.fire({
+                            icon: 'error',
+                            title: 'Oops...',
+                            text: 'Esse estado não possuí este produto, você pode consultar em outros estados!',
+
+                        })
                     }
                 });
             });

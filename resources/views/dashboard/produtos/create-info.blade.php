@@ -18,13 +18,25 @@
                         <select class="form-select" aria-label="Default select example" name="produto_id">
                             <option selected>Selecione o produto</option>
                             @foreach ($produtos as $produto)
-                            <option value="{{ $produto->id }}">{{ $produto->nome_produto }}</option>
+                                <option value="{{ $produto->id }}">{{ $produto->nome_produto }}</option>
                             @endforeach
 
-                          </select>
+                        </select>
                     </div>
                 </div>
 
+                <div class="col-6 mb-3">
+                    <div class="form-group">
+                        <label for="estados" class="form-label">Estado</label>
+                        <select class="form-select" aria-label="Default select example" name="estado_id">
+                            <option selected>Selecione o estado</option>
+                            @foreach ($estados as $estado)
+                                <option value="{{ $estado->id }}">{{ $estado->name }}</option>
+                            @endforeach
+
+                        </select>
+                    </div>
+                </div>
 
                 <div class="col-4 mb-3">
                     <div class="form-group">
@@ -57,29 +69,42 @@
                     </div>
                 </div>
 
+
                 <div class="col-4 mb-3">
                     <div class="form-group">
-                        <label for="ajuste1" class="form-label">MVA Ajustado 1</label>
-                        <input type="number" id="ajuste1" name="ajuste1" class="form-control">
+                        <label for="ajuste1" class="form-label" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Se não houver ajustes, deixe o campo vázio">MVA Ajustado 1</label>
+                        <div class="input-group">
+                            <input type="number" id="ajuste1" name="ajuste1" class="form-control">
+                            <span class="input-group-text">%</span>
+                        </div>
                     </div>
                 </div>
                 <div class="col-4 mb-3">
                     <div class="form-group">
-                        <label for="ajuste2" class="form-label">MVA Ajustado 2</label>
-                        <input type="number" id="ajuste2" name="ajuste2" class="form-control">
+                        <label for="ajuste2" class="form-label" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Se não houver ajustes, deixe o campo vázio">MVA Ajustado 2</label>
+                        <div class="input-group">
+                            <input type="number" id="ajuste2" name="ajuste2" class="form-control">
+                            <span class="input-group-text">%</span>
+                        </div>
                     </div>
                 </div>
                 <div class="col-4 mb-3">
                     <div class="form-group">
-                        <label for="ajuste3" class="form-label">MVA Ajustado 3</label>
-                        <input type="number" id="ajuste3" name="ajuste3" class="form-control">
+                        <label for="ajuste3" class="form-label" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Se não houver ajustes, deixe o campo vázio">MVA Ajustado 3</label>
+                        <div class="input-group">
+                            <input type="number" id="ajuste3" name="ajuste3" class="form-control">
+                            <span class="input-group-text">%</span>
+                        </div>
                     </div>
                 </div>
 
                 <div class="col-4 mb-3">
                     <div class="form-group">
                         <label for="pauta" class="form-label">Pauta Fiscal</label>
-                        <input type="text" id="pauta" name="pauta" class="form-control">
+                        <div class="input-group">
+                            <input type="text" id="pauta" name="pauta" class="form-control">
+                            <span class="input-group-text">R$</span>
+                        </div>
                     </div>
                 </div>
 
@@ -90,18 +115,6 @@
                     </div>
                 </div>
 
-                <div class="col-4 mb-3">
-                    <div class="form-group">
-                        <label for="estados" class="form-label">Estado</label>
-                        <select class="form-select" aria-label="Default select example" name="estado_id">
-                            <option selected>Selecione o estado</option>
-                            @foreach ($estados as $estado)
-                            <option value="{{ $estado->id }}">{{ $estado->name }}</option>
-                            @endforeach
-
-                          </select>
-                    </div>
-                </div>
 
 
                 <div class="mb-3">
@@ -111,4 +124,13 @@
         </form>
 
     </div>
+@endsection
+
+@section('js')
+    <script>
+        $(function() {
+            $('[data-bs-toggle="tooltip"]').tooltip()
+        })
+
+    </script>
 @endsection
