@@ -16,6 +16,11 @@
                         <span class="text-dark fw-semibold fs-5">Informações conforme <br> Convênio ICMS
                             142/2018</span>
                     </div>
+                    <div class="border border-dark text-center  border-opacity-50  ">
+                        <div class="border w-100 p-2 ">
+                            <h4>{{ $produto->nome_produto }}</h4>
+                        </div>
+                    </div>
                     <div class="info border border-top-0 border-dark border-opacity-50  d-flex">
                         <div class="border w-50 p-3  ">
                             <span class="lh-1 fw-bold fs-5">CEST</span> <br>
@@ -45,7 +50,8 @@
                 <div class="p-3 text-center border border-dark border-opacity-50 border-top-0 border-bottom-0">
                     @foreach ($estados as $estado)
                         <button data-produto="{{ $produto->id }}" data-estado="{{ $estado->id }}" type="button"
-                            class="badge select-estado rounded-pill text-bg-danger active">{{ $estado->name }}</button>
+                            class="badge select-estado rounded-pill text-bg-danger active mb-1">{{ $estado->name }}
+                        </button>
                     @endforeach
                 </div>
 

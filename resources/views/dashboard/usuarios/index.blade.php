@@ -8,8 +8,8 @@
     </div>
 
     <div class="table-responsive">
-        <table class="table table-striped table-sm">
-            <thead>
+        <table class="table table-bordered table-sm">
+            <thead class="table-dark">
                 <tr>
                     <th scope="col">#</th>
                     <th scope="col">Nome</th>

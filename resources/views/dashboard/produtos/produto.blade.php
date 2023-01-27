@@ -18,7 +18,7 @@
     @endif
     <div class="table-responsive">
         <table class="table table-bordered ">
-            <thead>
+            <thead class="table-dark">
                 <tr>
                     <th scope="col">ID</th>
                     <th scope="col">Produto</th>
@@ -32,7 +32,7 @@
             <tbody>
                 @forelse ($info as $i)
                     <tr>
-                        <td>{{ $i->produto->id }}</td>
+                        <td>{{ $i->id }}</td>
                         <td>{{ $i->produto->nome_produto }}</td>
                         <td>{{ $i->produto->cest }}</td>
                         <td>{{ $i->produto->ncm }}</td>

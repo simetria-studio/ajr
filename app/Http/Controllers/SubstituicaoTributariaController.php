@@ -27,7 +27,7 @@ class SubstituicaoTributariaController extends Controller
             $produtos = Produto::paginate(10);
         }
 
-        return view('pages.calculadoras.step-1', ['produtos' => $produtos, 'search' => $search]);
+        return view('site.step-1', ['produtos' => $produtos, 'search' => $search]);
     }
 
     /**

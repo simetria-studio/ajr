@@ -18,7 +18,7 @@ Auth::routes();
 Route::prefix('/')->group(function () {
     //Site
     Route::get('/', function () {
-        return view('index');
+        return view('site.index');
     });
     Route::get('/icms-interna', [icmsinternaController::class, 'index'])->name('icms-interna');
     Route::get('/icms-interestadual', [InterestadualController::class, 'index'])->name('icms-interestadual');

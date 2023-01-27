@@ -18,7 +18,7 @@ class ProdutoController extends Controller
     public function index()
     {
 
-        $produto = Produto::all();
+        $produtos = Produto::all();
         $info = InfoProduto::with('estado')->with('produto')->paginate(10);
         $estados = State::all();
 
@@ -60,11 +60,7 @@ class ProdutoController extends Controller
      */
     public function show($id)
     {
-        $info = InfoProduto::findOrFail($id);
-        $estados = State::findOrFail($id);
-        $produtos = Produto::findOrFail($id);
-
-        // return response()->json($produto);
+        $info = InfoProduto::with('estado')->with('produto')->findOrFail($id);
         return view('dashboard.produtos.show', get_defined_vars());
     }
 
@@ -76,10 +72,8 @@ class ProdutoController extends Controller
      */
     public function edit($id)
     {
-        $info = InfoProduto::findOrFail($id);
-
         $estados = State::all();
-        $produto = Produto::findOrFail($id);
+        $info = InfoProduto::with('estado')->with('produto')->findOrFail($id);
         return view('dashboard.produtos.edit', get_defined_vars());
     }
 
@@ -106,7 +100,7 @@ class ProdutoController extends Controller
      */
     public function destroy(Request $request)
     {
-        Produto::findOrFail($request->id)->delete();
+        InfoProduto::findOrFail($request->id)->delete();
 
         return redirect('/dashboard/produtos')->with('delete', 'Produto excluído com sucesso!');
     }

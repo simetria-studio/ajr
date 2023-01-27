@@ -61,14 +61,14 @@
                     </tr>
                 </thead>
                 <tbody>
-                    @forelse ($produtos as $produto)
+                    @forelse ($info as $i)
                         <tr>
-                            <td>{{ $produto->nome_produto }}</td>
-                            <td>{{ $produto->cest }}</td>
-                            <td>{{ $produto->ncm }}</td>
-                            <td>{{ $produto->segmento }}</td>
+                            <td>{{ $i->produto->nome_produto }}</td>
+                            <td>{{ $i->produto->cest }}</td>
+                            <td>{{ $i->produto->ncm }}</td>
+                            <td>{{ $i->produto->segmento }}</td>
                             <td class="d-flex justify-content-around" >
-                                <a href="/dashboard/produtos/show/{{ $produto->id }}" class="btn btn-info text-white" type="button">
+                                <a href="/dashboard/produtos/show/{{ $i->produto->id }}" class="btn btn-info text-white" type="button">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
                                         class="bi bi-eye" viewBox="0 0 16 16">
                                         <path
@@ -77,7 +77,7 @@
                                             d="M8 5.5a2.5 2.5 0 1 0 0 5 2.5 2.5 0 0 0 0-5zM4.5 8a3.5 3.5 0 1 1 7 0 3.5 3.5 0 0 1-7 0z" />
                                     </svg>
                                 </a>
-                                <a href="/dashboard/produtos/edit/{{ $produto->id }}" class="btn btn-primary">
+                                <a href="/dashboard/produtos/edit/{{ $i->produto->id }}" class="btn btn-primary">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
                                         class="bi bi-pencil-square" viewBox="0 0 16 16">
                                         <path
@@ -86,7 +86,7 @@
                                             d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z" />
                                     </svg>
                                 </a>
-                                <form action="/dashboard/produtos/{{ $produto->id }}" method="POST">
+                                <form action="/dashboard/produtos/{{ $i->produto->id }}" method="POST">
                                     @csrf
                                     @method('DELETE')
                                     <a type="submit" class=" btn btn-danger">

@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Produto;
 use App\Models\User;
+use App\Models\InfoProduto;
 use Illuminate\Http\Request;
 
 class DashboardController extends Controller
@@ -15,8 +15,8 @@ class DashboardController extends Controller
      */
     public function index()
     {
-        $usuarios = User::paginate(10);
-        $produtos = Produto::paginate(10);
+        $info = InfoProduto::with('estado')->with('produto')->paginate(10);
+        $usuarios = User::all();
         return view('dashboard.dashboard', get_defined_vars());
     }
 

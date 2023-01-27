@@ -20,19 +20,19 @@
             <div class="row  rounded shadow p-3">
                 <div class="col-6 p-3">
                     <h4>CEST</h4>
-                    <p class="fs-5 text-secondary">{{ $produtos->cest }}</p>
+                    <p class="fs-5 text-secondary">{{ $info->produto->cest }}</p>
                 </div>
                 <div class="col-6 p-3">
                     <h4>NCM</h4>
-                    <p class="fs-5 text-secondary">{{ $produtos->ncm }}</p>
+                    <p class="fs-5 text-secondary">{{ $info->produto->ncm }}</p>
                 </div>
                 <div class="col-12 p-3">
                     <h4>Descrição</h4>
-                    <p class="fs-5 text-secondary">{{ $produtos->descricao }}</p>
+                    <p class="fs-5 text-secondary">{{  $info->produto->descricao }}</p>
                 </div>
                 <div class="col-12 p-3">
                     <h4>Segmento</h4>
-                    <p class="fs-5 text-secondary">{{ $produtos->segmento }}</p>
+                    <p class="fs-5 text-secondary">{{  $info->produto->segmento }}</p>
                 </div>
             </div>
         </div>

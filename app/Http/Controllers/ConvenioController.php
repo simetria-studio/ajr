@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\InfoProduto;
 use App\Models\Produto;
 use Illuminate\Http\Request;
 
@@ -17,13 +18,13 @@ class ConvenioController extends Controller
         $search = request('search');
 
         if ($search) {
-            $produtos = Produto::where([
+            $info = InfoProduto::where([
                 ['ncm', 'like', '%' . $search . '%'],
             ])->orWhere([['cest', 'like', '%' . $search . '%'],])->paginate(10);
         } else {
-            $produtos = Produto::paginate(10);
+            $info = InfoProduto::paginate(10);
         }
-        return view('pages.calculadoras.step-2', ['produtos' => $produtos, 'search' => $search]);
+        return view('site.step-2', get_defined_vars());
     }
 
     /**

@@ -21,18 +21,20 @@
                         <th>NCM</th>
                         <th>Descrição</th>
                         <th>Segmento</th>
+                        <th>Estado</th>
                         <th>Ação</th>
                     </tr>
                 </thead>
                 <tbody>
-                    @forelse ($produtos as $produto)
+                    @forelse ($info as $i)
                         <tr>
-                            <td>{{ $produto->cest }}</td>
-                            <td>{{ $produto->ncm }}</td>
-                            <td>{{ $produto->descricao }}</td>
-                            <td>{{ $produto->segmento }}</td>
+                            <td>{{ $i->produto->cest }}</td>
+                            <td>{{ $i->produto->ncm }}</td>
+                            <td>{{ $i->produto->descricao }}</td>
+                            <td>{{ $i->produto->segmento }}</td>
+                            <td>{{ $i->estado->name }}</td>
                             <td>
-                                <a href="/convenio/detalhes/{{ $produto->id }}" class="btn btn-danger">escolher</a>
+                                <a href="/convenio/detalhes/{{ $i->produto->id }}" class="btn btn-danger">escolher</a>
                             </td>
                         </tr>
                     @empty
@@ -45,7 +47,7 @@
                     @endforelse
                 </tbody>
             </table>
-            {{ $produtos->links() }}
+            {{ $info->links() }}
         </div>
     </div>
 @endsection

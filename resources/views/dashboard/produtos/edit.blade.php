@@ -8,18 +8,18 @@
 </div>
 
 <div class="col-6 offset-2  my-5">
-    <form action="/dashboard/produtos/update/{{$produto->id}}" method="POST">
+    <form action="/dashboard/produtos/update/{{$info->produto->id}}" method="POST">
         @csrf
         @method('PUT')
         <div class="row">
             <div class="col-12 mb-3">
                 <div class="form-group">
                     <label for="produto" class="form-label">Nome do Produto</label>
-                    <input type="text" id="produto" name="nome_produto" value="{{ $produto->nome_produto }}" class="form-control">
+                    <input type="text" id="produto" name="nome_produto" value="{{ $info->produto->nome_produto }}" class="form-control">
                 </div>
             </div>
 
-            <div class="col-6 mb-3">
+         <div class="col-6 mb-3">
                 <div class="form-group">
                     <label for="estado_id" class="form-label">Estado</label>
                     <select class="form-select" aria-label="Default select example" id="estado_id" name="estado_id">
@@ -35,21 +35,21 @@
             <div class="col-6 mb-3">
                 <div class="form-group">
                     <label for="segmento" class="form-label">Segmento</label>
-                    <input type="text" id="segmento" name="segmento" value="{{ $produto->segmento }}" class="form-control">
+                    <input type="text" id="segmento" name="segmento" value="{{ $info->produto->segmento }}" class="form-control">
                 </div>
             </div>
 
             <div class="col-6 mb-3">
                 <div class="form-group">
                     <label for="cest" class="form-label">CEST</label>
-                    <input type="text" id="cest" name="cest" value="{{ $produto->cest }}" class="form-control">
+                    <input type="text" id="cest" name="cest" value="{{ $info->produto->cest }}" class="form-control">
                 </div>
             </div>
 
             <div class="col-6 mb-3">
                 <div class="form-group">
                     <label for="ncm" class="form-label">NCM</label>
-                    <input type="text" id="ncm" name="ncm" value="{{ $produto->ncm }}" class="form-control">
+                    <input type="text" id="ncm" name="ncm" value="{{ $info->produto->ncm }}" class="form-control">
                 </div>
             </div>
 
@@ -112,7 +112,7 @@
             <div class="col-12 mb-3">
                 <div class="form-group">
                     <label for="descricao" class="form-label">Descrição</label>
-                    <textarea type="text" rows="5" id="descricao" name="descricao"  class="form-control">{{ $produto->descricao }}</textarea>
+                    <textarea type="text" rows="5" id="descricao" name="descricao"  class="form-control">{{ $info->produto->descricao }}</textarea>
                 </div>
             </div>
 

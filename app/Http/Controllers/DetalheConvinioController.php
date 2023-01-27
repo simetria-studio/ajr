@@ -19,7 +19,7 @@ class DetalheConvinioController extends Controller
         $produto = Produto::find($id);
         $info = InfoProduto::with('estado')->where('produto_id', $id)->first();
         $estados = State::all();
-        return view('pages.calculadoras.step-3', get_defined_vars() );
+        return view('site.step-3', get_defined_vars() );
     }
 
     public function filtroEstado(Request $request)
