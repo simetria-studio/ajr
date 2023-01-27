@@ -12,6 +12,7 @@ class InfoProduto extends Model
     protected $fillable = [
         'produto_id',
         'estado_id',
+        'segmento_id',
         'aliquota',
         'mva',
         'fcp',
@@ -30,5 +31,10 @@ class InfoProduto extends Model
     public function estado()
     {
         return $this->belongsTo(State::class);
+    }
+
+    public function segmento()
+    {
+        return $this->belongsTo(Segmento::class);
     }
 }

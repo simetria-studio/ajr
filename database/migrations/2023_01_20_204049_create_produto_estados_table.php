@@ -17,6 +17,7 @@ return new class extends Migration
             $table->id();
             $table->integer('produto_id')->nullable();
             $table->integer('estado_id')->nullable();
+            $table->integer('segmento_id')->nullable();
             $table->integer('status')->default(1)->nullable();
             $table->timestamps();
         });

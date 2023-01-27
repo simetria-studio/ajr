@@ -31,14 +31,14 @@
                         <select class="form-select" aria-label="Default select example" name="estado_id">
                             <option selected>Selecione o estado</option>
                             @foreach ($estados as $estado)
-                                <option value="{{ $estado->id }}">{{ $estado->name }}</option>
+                                <option  value="{{ $estado->id }}">{{ $estado->name }}</option>
                             @endforeach
 
                         </select>
                     </div>
                 </div>
 
-                <div class="col-4 mb-3">
+                <div class="col-6 mb-3">
                     <div class="form-group">
                         <label for="aliquota" class="form-label ">Alíquota</label>
                         <div class="input-group">
@@ -49,9 +49,21 @@
                     </div>
                 </div>
 
-                <div class="col-4 mb-3">
+
+
+                <div class="col-6 mb-3">
                     <div class="form-group">
-                        <label for="mva" class="form-label">MVA</label>
+                        <label for="fcp" class="form-label">FCP</label>
+                        <div class="input-group">
+                            <input type="number" id="fcp" name="fcp" class="form-control fcp" >
+                            <span class="input-group-text">%</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-3 mb-3">
+                    <div class="form-group">
+                        <label for="mva" class="form-label">MVA (original)</label>
                         <div class="input-group">
                             <input type="number" id="mva" name="mva" class="form-control mva" required>
                             <span class="input-group-text">%</span>
@@ -59,38 +71,27 @@
                     </div>
                 </div>
 
-                <div class="col-4 mb-3">
+                <div class="col-3 mb-3">
                     <div class="form-group">
-                        <label for="fcp" class="form-label">FCP</label>
-                        <div class="input-group">
-                            <input type="number" id="fcp" name="fcp" class="form-control fcp" required>
-                            <span class="input-group-text">%</span>
-                        </div>
-                    </div>
-                </div>
-
-
-                <div class="col-4 mb-3">
-                    <div class="form-group">
-                        <label for="ajuste1" class="form-label" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Se não houver ajustes, deixe o campo vázio">MVA Ajustado 1</label>
+                        <label for="ajuste1" class="form-label" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Se não houver ajustes, deixe o campo vázio">MVA Ajustado a:</label>
                         <div class="input-group">
                             <input type="number" id="ajuste1" name="ajuste1" class="form-control">
                             <span class="input-group-text">%</span>
                         </div>
                     </div>
                 </div>
-                <div class="col-4 mb-3">
+                <div class="col-3 mb-3">
                     <div class="form-group">
-                        <label for="ajuste2" class="form-label" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Se não houver ajustes, deixe o campo vázio">MVA Ajustado 2</label>
+                        <label for="ajuste2" class="form-label" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Se não houver ajustes, deixe o campo vázio">MVA Ajustado a:</label>
                         <div class="input-group">
                             <input type="number" id="ajuste2" name="ajuste2" class="form-control">
                             <span class="input-group-text">%</span>
                         </div>
                     </div>
                 </div>
-                <div class="col-4 mb-3">
+                <div class="col-3 mb-3">
                     <div class="form-group">
-                        <label for="ajuste3" class="form-label" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Se não houver ajustes, deixe o campo vázio">MVA Ajustado 3</label>
+                        <label for="ajuste3" class="form-label" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Se não houver ajustes, deixe o campo vázio">MVA Ajustado a:</label>
                         <div class="input-group">
                             <input type="number" id="ajuste3" name="ajuste3" class="form-control">
                             <span class="input-group-text">%</span>
@@ -98,17 +99,17 @@
                     </div>
                 </div>
 
-                <div class="col-4 mb-3">
+                <div class="col-6 mb-3">
                     <div class="form-group">
-                        <label for="pauta" class="form-label">Pauta Fiscal</label>
+                        <label for="pauta" class="form-label ">Pauta Fiscal</label>
                         <div class="input-group">
-                            <input type="text" id="pauta" name="pauta" class="form-control">
+                            <input type="text" id="pauta" name="pauta" class="form-control reais">
                             <span class="input-group-text">R$</span>
                         </div>
                     </div>
                 </div>
 
-                <div class="col-4 mb-3">
+                <div class="col-6 mb-3">
                     <div class="form-group">
                         <label for="protocolo" class="form-label">Protocolo / Convênio</label>
                         <input type="text" id="protocolo" name="protocolo" class="form-control">

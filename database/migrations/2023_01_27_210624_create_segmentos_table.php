@@ -13,14 +13,10 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('produtos', function (Blueprint $table) {
+        Schema::create('segmentos', function (Blueprint $table) {
             $table->id();
-            $table->string('nome_produto');
-            $table->string('cest')->nullable();
-            $table->string('ncm')->nullable();
-            $table->string('segmento')->nullable();
-            $table->text('descricao')->nullable();
-            $table->integer('estado_id')->nullable();
+            $table->string('name');
+            $table->integer('product_id');
             $table->integer('status')->default(1)->nullable();
             $table->timestamps();
         });
@@ -33,6 +29,6 @@ return new class extends Migration
      */
     public function down()
     {
-        //
+        Schema::dropIfExists('segmentos');
     }
 };

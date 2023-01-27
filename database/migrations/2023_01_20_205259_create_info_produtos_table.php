@@ -17,14 +17,15 @@ return new class extends Migration
             $table->id();
             $table->integer('produto_id')->nullable();
             $table->integer('estado_id')->nullable();
-            $table->string('aliquota');
-            $table->string('mva');
-            $table->string('fcp');
-            $table->string('ajuste1');
-            $table->string('ajuste2');
-            $table->string('ajuste3');
-            $table->string('pauta');
-            $table->string('protocolo');
+            $table->integer('segmento_id')->nullable();
+            $table->string('aliquota')->nullable();
+            $table->string('mva')->nullable();
+            $table->string('fcp')->nullable();
+            $table->string('ajuste1')->nullable();
+            $table->string('ajuste2')->nullable();
+            $table->string('ajuste3')->nullable();
+            $table->string('pauta')->nullable();
+            $table->string('protocolo')->nullable();
             $table->timestamps();
         });
     }

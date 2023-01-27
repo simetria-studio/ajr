@@ -27,7 +27,7 @@
                 <div class="col-6 mb-3">
                     <div class="form-group">
                         <label for="cest" class="form-label">CEST</label>
-                        <input type="text" id="cest" name="cest" class="form-control cest" required
+                        <input type="text" id="cest" name="cest" class="form-control cest"
                             placeholder="00.000.00">
                     </div>
                 </div>
@@ -41,7 +41,7 @@
                 <div class="col-12  mb-3">
                     <div class="form-group">
                         <label for="descricao" class="form-label">Descrição</label>
-                        <textarea  rows="5" id="descricao" name="descricao" class="form-control" required
+                        <textarea  rows="5" id="descricao" name="descricao" class="form-control"
                         placeholder="Breve descrição do produto"></textarea>
                     </div>
                 </div>

@@ -14,7 +14,7 @@ class EstadoController extends Controller
      */
     public function index()
     {
-        
+
         $estados = State::paginate(10);
         return view('dashboard.estados.index', get_defined_vars());
     }

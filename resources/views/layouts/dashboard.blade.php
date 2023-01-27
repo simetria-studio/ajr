@@ -1,5 +1,6 @@
 <!doctype html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -72,34 +73,57 @@
                             </strong>
                             <ul class="nav d-block fw-normal pb-2 small">
                                 <li class="nav-item lh-1">
-                                    <a class="nav-link text-black opacity-75 fs-6" href="{{ url('/dashboard/produtos') }}">Lista de Produtos</a>
+                                    <a class="nav-link text-black opacity-75 fs-6"
+                                        href="{{ url('/dashboard/produtos') }}">Lista de Produtos</a>
                                 </li>
                                 <li class="nav-item lh-1">
-                                    <a class="nav-link text-black opacity-75 fs-6" href="/dashboard/produtos/create">Criar um Produto</a>
+                                    <a class="nav-link text-black opacity-75 fs-6"
+                                        href="/dashboard/produtos/create">Criar um Produto</a>
                                 </li>
                                 <li class="nav-item lh-1">
-                                    <a class="nav-link text-black opacity-75 fs-6" href="{{ route('info.create') }}">Cadastrar Info...</a>
+                                    <a class="nav-link text-black opacity-75 fs-6"
+                                        href="{{ route('info.create') }}">Cadastrar Info...</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="nav-item py-2">
+                            <strong class="d-flex w-100 align-items-center fw-semibold fs-5">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20"
+                                    fill="currentColor" class="bi bi-segmented-nav me-2" viewBox="0 0 16 16">
+                                    <path
+                                        d="M0 6a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v2a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V6zm6 3h4V5H6v4zm9-1V6a1 1 0 0 0-1-1h-3v4h3a1 1 0 0 0 1-1z" />
+                                </svg>
+                                Segmento
+                            </strong>
+                            <ul class="nav d-block fw-normal pb-2 small">
+                                <li class="nav-item lh-1">
+                                    <a href="" class="nav-link text-black opacity-75 fs-6">Criar um Segmento</a>
                                 </li>
                             </ul>
                         </li>
 
-                        <li class="nav-item py-2">
+                        {{-- <li class="nav-item py-2">
                             <strong class="d-flex w-100 align-items-center fw-semibold fs-5">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-pin-map-fill me-2" viewBox="0 0 16 16">
-                                    <path fill-rule="evenodd" d="M3.1 11.2a.5.5 0 0 1 .4-.2H6a.5.5 0 0 1 0 1H3.75L1.5 15h13l-2.25-3H10a.5.5 0 0 1 0-1h2.5a.5.5 0 0 1 .4.2l3 4a.5.5 0 0 1-.4.8H.5a.5.5 0 0 1-.4-.8l3-4z"/>
-                                    <path fill-rule="evenodd" d="M4 4a4 4 0 1 1 4.5 3.969V13.5a.5.5 0 0 1-1 0V7.97A4 4 0 0 1 4 3.999z"/>
-                                  </svg>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20"
+                                    fill="currentColor" class="bi bi-pin-map-fill me-2" viewBox="0 0 16 16">
+                                    <path fill-rule="evenodd"
+                                        d="M3.1 11.2a.5.5 0 0 1 .4-.2H6a.5.5 0 0 1 0 1H3.75L1.5 15h13l-2.25-3H10a.5.5 0 0 1 0-1h2.5a.5.5 0 0 1 .4.2l3 4a.5.5 0 0 1-.4.8H.5a.5.5 0 0 1-.4-.8l3-4z" />
+                                    <path fill-rule="evenodd"
+                                        d="M4 4a4 4 0 1 1 4.5 3.969V13.5a.5.5 0 0 1-1 0V7.97A4 4 0 0 1 4 3.999z" />
+                                </svg>
                                 Estados
                             </strong>
                             <ul class="nav d-block fw-normal pb-2 small">
                                 <li class="nav-item lh-1">
-                                    <a class="nav-link text-black opacity-75 fs-6" href="{{ route('estados.index') }}">Lista de Estados</a>
+                                    <a class="nav-link text-black opacity-75 fs-6"
+                                        href="{{ route('estados.index') }}">Lista de Estados</a>
                                 </li>
                                 <li class="nav-item lh-1">
-                                    <a class="nav-link text-black opacity-75 fs-6" href="{{ route('estados.create') }}">Cadastar estado</a>
+                                    <a class="nav-link text-black opacity-75 fs-6"
+                                        href="{{ route('estados.create') }}">Cadastar estado</a>
                                 </li>
                             </ul>
-                        </li>
+                        </li> --}}
 
                     </ul>
                 </div>
@@ -118,6 +142,7 @@
     <script src="https://code.jquery.com/jquery-3.6.1.js"></script>
     <script src="{{ asset('js/jquery.mask.js') }}"></script>
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="{{ asset('js/jquery.maskMoney.js') }}" type="text/javascript"></script>
     <script src="https://cdn.jsdelivr.net/npm/feather-icons@4.28.0/dist/feather.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.4/dist/Chart.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/feather-icons@4.28.0/dist/feather.min.js"></script>
@@ -129,6 +154,13 @@
             $('.aliquota').mask("000");
             $('.mva').mask("000");
             $('.fcp').mask("000");
+            $("#pauta").maskMoney({
+                prefix: 'R$ ',
+                allowNegative: true,
+                thousands: '.',
+                decimal: ',',
+                affixesStay: false
+            });
         });
 
 

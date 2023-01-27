@@ -12,10 +12,30 @@
         @csrf
         @method('PUT')
         <div class="row">
-            <div class="col-6 mb-3">
+            <div class="col-12 mb-3">
                 <div class="form-group">
                     <label for="produto" class="form-label">Nome do Produto</label>
                     <input type="text" id="produto" name="nome_produto" value="{{ $produto->nome_produto }}" class="form-control">
+                </div>
+            </div>
+
+            <div class="col-6 mb-3">
+                <div class="form-group">
+                    <label for="estado_id" class="form-label">Estado</label>
+                    <select class="form-select" aria-label="Default select example" id="estado_id" name="estado_id">
+                        <option  selected>Selecione o estado</option>
+                        @foreach ($estados as $estado)
+                            <option   value="{{ $estado->id }}">{{ $estado->name }}</option>
+                        @endforeach
+
+                    </select>
+                </div>
+            </div>
+
+            <div class="col-6 mb-3">
+                <div class="form-group">
+                    <label for="segmento" class="form-label">Segmento</label>
+                    <input type="text" id="segmento" name="segmento" value="{{ $produto->segmento }}" class="form-control">
                 </div>
             </div>
 
@@ -33,68 +53,62 @@
                 </div>
             </div>
 
+
+
             <div class="col-6 mb-3">
                 <div class="form-group">
-                    <label for="segmento" class="form-label">Segmento</label>
-                    <input type="text" id="segmento" name="segmento" value="{{ $produto->segmento }}" class="form-control">
-                </div>
-
-            </div>
-
-            <div class="col-4 mb-3">
-                <div class="form-group">
                     <label for="aliquota" class="form-label">Alíquota</label>
-                    <input type="text" id="aliquota" name="aliquota" value="{{ $produto->aliquota }}" class="form-control">
+                    <input type="text" id="aliquota" name="aliquota" value="{{ $info->aliquota }}" class="form-control">
                 </div>
             </div>
-            <div class="col-4 mb-3">
-                <div class="form-group">
-                    <label for="mva" class="form-label">MVA</label>
-                    <input type="text" id="mva" name="mva" value="{{ $produto->mva }}" class="form-control">
-                </div>
-            </div>
-            <div class="col-4 mb-3">
+
+            <div class="col-6 mb-3">
                 <div class="form-group">
                     <label for="fcp" class="form-label">FCP</label>
-                    <input type="text" id="fcp" name="fcp" value="{{ $produto->fcp }}" class="form-control">
+                    <input type="text" id="fcp" name="fcp" value="{{ $info->fcp }}" class="form-control">
                 </div>
             </div>
-            <div class="col-4 mb-3">
+            <div class="col-3 mb-3">
+                <div class="form-group">
+                    <label for="mva" class="form-label">MVA Original</label>
+                    <input type="text" id="mva" name="mva" value="{{ $info->mva }}" class="form-control">
+                </div>
+            </div>
+            <div class="col-3 mb-3">
                 <div class="form-group">
                     <label for="ajuste1" class="form-label">Ajustes</label>
-                    <input type="text" id="ajuste1" name="ajuste1" value="{{ $produto->ajuste1 }}" class="form-control">
+                    <input type="text" id="ajuste1" name="ajuste1" value="{{ $info->ajuste1 }}" class="form-control">
                 </div>
             </div>
-            <div class="col-4 mb-3">
+            <div class="col-3 mb-3">
                 <div class="form-group">
                     <label for="ajuste2" class="form-label">Ajustes</label>
-                    <input type="text" id="ajuste2" name="ajuste2" value="{{ $produto->ajuste2 }}" class="form-control">
+                    <input type="text" id="ajuste2" name="ajuste2" value="{{ $info->ajuste2 }}" class="form-control">
                 </div>
             </div>
-            <div class="col-4 mb-3">
+            <div class="col-3 mb-3">
                 <div class="form-group">
                     <label for="ajuste3" class="form-label">Ajustes</label>
-                    <input type="text" id="ajuste3" name="ajuste3" value="{{ $produto->ajuste3 }}" class="form-control">
+                    <input type="text" id="ajuste3" name="ajuste3" value="{{ $info->ajuste3 }}" class="form-control">
                 </div>
             </div>
-            <div class="col-4 mb-3">
+            <div class="col-6 mb-3">
                 <div class="form-group">
                     <label for="pauta" class="form-label">Pauta Fiscal</label>
-                    <input type="text" id="pauta" name="pauta" value="{{ $produto->pauta }}" class="form-control">
+                    <input type="text" id="pauta" name="pauta" value="{{ $info->pauta }}" class="form-control">
                 </div>
             </div>
-            <div class="col-4 mb-3">
+            <div class="col-6 mb-3">
                 <div class="form-group">
                     <label for="protocolo" class="form-label">Protocolo / Convênio</label>
-                    <input type="text" id="protocolo" name="protocolo" value="{{ $produto->protocolo }}" class="form-control">
+                    <input type="text" id="protocolo" name="protocolo" value="{{ $info->protocolo }}" class="form-control">
                 </div>
             </div>
-            <div class="col-4 mb-3">
-                <div class="form-group">
-                    <label for="estados" class="form-label">Estado</label>
-                    <input type="text" id="estados" name="estados" value="{{ $produto->estados }}" class="form-control">
-                </div>
-            </div>
+
+
+
+
+
             <div class="col-12 mb-3">
                 <div class="form-group">
                     <label for="descricao" class="form-label">Descrição</label>

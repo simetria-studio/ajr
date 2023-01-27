@@ -14,7 +14,7 @@
         <div class="col-4">
             <div class="row">
                 <div class=" border-dark shadow border-opacity-50 rounded p-3 mb-3 text-center">
-                    <h4 class="text-danger fw-bold">{{ $produtos->estados }}</h4>
+                    <h4 class="text-danger fw-bold">{{ $info->estado->name }}</h4>
                 </div>
             </div>
             <div class="row  rounded shadow p-3">
@@ -39,34 +39,34 @@
         <div class="col-6">
             <div class="row align-items-center rounded shadow text-center h-100 p-2 py-5">
                 <div class="col-4  ">
-                    <h2>{{ $produtos->aliquota }}%</h2>
+                    <h2>{{ $info->aliquota }}%</h2>
                     <p class="fs-5 text-secondary">Alíquota</p>
                 </div>
                 <div class="col-4 ">
-                    <h2>{{ $produtos->mva }}%</h2>
+                    <h2>{{ $info->mva }}%</h2>
                     <p class="fs-5 text-secondary">MVA Original:</p>
 
 
                 </div>
                 <div class="col-4">
-                    <h2>{{ $produtos->pauta }}</h2>
+                    <h2>{{ $info->pauta }}</h2>
                     <p class="fs-5 text-secondary"> Pauta Fiscal</p>
                 </div>
                 <div class="col-4 offset-4">
                     <p class="fs-5 text-secondary  text-center ">Ajustes:</p>
                     <div class="d-flex justify-content-center ">
-                        <h4 class="me-2">{{ $produtos->ajuste1 }}%</h4>
-                        <h4 class="me-2">{{ $produtos->ajuste2 }}%</h4>
-                        <h4 class="me-2">{{ $produtos->ajuste3 }}%</h4>
+                        <h4 class="me-2">{{ $info->ajuste1 }}%</h4>
+                        <h4 class="me-2">{{ $info->ajuste2 }}%</h4>
+                        <h4 class="me-2">{{ $info->ajuste3 }}%</h4>
                     </div>
                 </div>
                 <div class="col-5 offset-1">
-                    <h2>{{ $produtos->fcp }}%</h2>
+                    <h2>{{ $info->fcp }}%</h2>
                     <p class="fs-5 text-secondary"> Fundo de Combate a Pobreza</p>
                 </div>
 
                 <div class="col-5 ">
-                    <h2>{{ $produtos->protocolo }}</h2>
+                    <h2>{{ $info->protocolo }}</h2>
                     <p class="fs-5 text-secondary">Protocolo / Convênio com</p>
                 </div>
             </div>

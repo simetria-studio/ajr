@@ -39,9 +39,7 @@
             <div class="col-8">
                 <div class="p-1 text-center border rounded-top  border-dark border-opacity-50 ">
                     <span>
-                        Os Estados a seguir são apenas os que constam com alguma previsão de substituíção tributária
-                        acerca
-                        do produto selecionado.
+                        Você pode visualizar tambem as informações de outros estados
                     </span>
                 </div>
                 <div class="p-3 text-center border border-dark border-opacity-50 border-top-0 border-bottom-0">

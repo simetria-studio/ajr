@@ -60,7 +60,8 @@ class ProdutoController extends Controller
      */
     public function show($id)
     {
-
+        $info = InfoProduto::findOrFail($id);
+        $estados = State::findOrFail($id);
         $produtos = Produto::findOrFail($id);
 
         // return response()->json($produto);
@@ -75,8 +76,11 @@ class ProdutoController extends Controller
      */
     public function edit($id)
     {
+        $info = InfoProduto::findOrFail($id);
+
+        $estados = State::all();
         $produto = Produto::findOrFail($id);
-        return view('dashboard.produtos.edit', ['produto' => $produto]);
+        return view('dashboard.produtos.edit', get_defined_vars());
     }
 
     /**
@@ -88,6 +92,8 @@ class ProdutoController extends Controller
      */
     public function update(Request $request)
     {
+        InfoProduto::findOrFail($request->id)->update($request->all());
+        State::findOrFail($request->id)->update($request->all());
         Produto::findOrFail($request->id)->update($request->all());
         return redirect('/dashboard/produtos')->with('mensagem', 'Produto editado com sucesso!');
     }
@@ -115,7 +121,7 @@ class ProdutoController extends Controller
     {
         InfoProduto::create($request->all());
 
-        return redirect()->back();
+        return redirect('/dashboard/produtos')->with('mensagem', 'Informação cadastrada com sucesso!');
 
     }
 
