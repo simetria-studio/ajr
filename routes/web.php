@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CalculadoraController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\TesteController;
@@ -8,8 +9,6 @@ use App\Http\Controllers\EstadoController;
 use App\Http\Controllers\ProdutoController;
 use App\Http\Controllers\ConvenioController;
 use App\Http\Controllers\DashboardController;
-use App\Http\Controllers\icmsinternaController;
-use App\Http\Controllers\InterestadualController;
 use App\Http\Controllers\DetalheConvinioController;
 use App\Http\Controllers\SubstituicaoTributariaController;
 
@@ -20,11 +19,14 @@ Route::prefix('/')->group(function () {
     Route::get('/', function () {
         return view('site.index');
     });
-    Route::get('/icms-interna', [icmsinternaController::class, 'index'])->name('icms-interna');
-    Route::get('/icms-interestadual', [InterestadualController::class, 'index'])->name('icms-interestadual');
+    Route::get('/icms-interna', [CalculadoraController::class, 'index'])->name('icms-interna');
+    Route::get('/icms-interestadual', [CalculadoraController::class, 'interestadual'])->name('icms-interestadual');
     Route::get('/substituicao-tributaria', [SubstituicaoTributariaController::class, 'index'])->name('substituicao-tributaria');
     Route::get('/convenio', [ConvenioController::class, 'index'])->name('convenio');
     Route::get('/convenio/detalhes/{id}', [DetalheConvinioController::class, 'index'])->name('detalhes');
+    Route::get('/estados', function () {
+        return view('site.newstep');
+    })->name('estados');
 });
 
 Route::prefix('dashboard')->middleware(['auth'])->group(function () {

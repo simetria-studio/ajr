@@ -7,200 +7,326 @@
         <div class="text-center  mb-5">
             <h2 class="pt-5 text-danger">Simulação Interna</h2>
         </div>
-
-        <div class=" tabela ">
-            <!-- Tabela Esquerda -->
-            <div class=" p-3  mb-5 border shadow rounded bg-white">
-                <form>
-                    <div class="row  p-3 ">
-
-                        <!-- Mensagem de aviso -->
-
-                        {{-- <div class="alert alert-danger col-12">
-                            Quando os centavos forem múltiplos de 10, favor informar o zero (0); exemplo: 99,9 informar 99,90
-                        </div> --}}
-
-                        <!--Campos/inputs-->
-
-                        <div class="col-12 mb-3">
-                            <label for="ipivalue" class="form-label"> Alíquota do IPI </label>
+        <table class="table table-sm table-striped table-bordered">
+            <tbody>
+                <tr>
+                    <th scope="row">1</th>
+                    <td>Valor dos produtos</td>
+                    <td>
+                        <div class="d-flex align-items-center justify-content-between">
+                            <label for="">R$</label>
+                            <input type="text" class="form-control form-control-sm mx-2">
+                            <button type="button" class="btn btn-duvida bg-secondary mx-2" data-bs-toggle="tooltip"
+                                data-bs-placement="top" data-bs-custom-class="custom-tooltip"
+                                data-bs-title="Valor Original do produto">
+                                ?
+                            </button>
                         </div>
-                        <div class="col-md-4 col-6 mb-3">
-                            <div class="input-group">
-                                <input id="ipivalue" class="form-control" type="number" value="5" min="0"
-                                    max="100">
-                                <span class="input-group-text">%</span>
-                            </div>
+                    </td>
+
+                </tr>
+                <tr>
+                    <th scope="row">2</th>
+                    <td>Valor do frete</td>
+                    <td>
+                        <div class="d-flex align-items-center  justify-content-between">
+                            <label for="">R$</label>
+                            <input type="text" class="form-control form-control-sm mx-2">
+                            <button type="button" class="btn btn-duvida bg-secondary mx-2" data-bs-toggle="tooltip"
+                                data-bs-placement="top" data-bs-custom-class="custom-tooltip"
+                                data-bs-title="Valor do frete">
+                                ?
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <th scope="row">3</th>
+                    <td>Valor do seguro</td>
+                    <td>
+                        <div class="d-flex align-items-center  justify-content-between">
+                            <label for="">R$</label>
+                            <input type="text" class="form-control form-control-sm mx-2">
+                            <button type="button" class="btn btn-duvida bg-secondary mx-2" data-bs-toggle="tooltip"
+                                data-bs-placement="top" data-bs-custom-class="custom-tooltip"
+                                data-bs-title="Valor do seguro">
+                                ?
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <th scope="row">4</th>
+                    <td>Outras despesas acessórias</td>
+                    <td>
+                        <div class="d-flex align-items-center  justify-content-between">
+                            <label for="">R$</label>
+                            <input type="text" class="form-control form-control-sm mx-2">
+                            <button type="button" class="btn btn-duvida bg-secondary mx-2" data-bs-toggle="tooltip"
+                                data-bs-placement="top" data-bs-custom-class="custom-tooltip"
+                                data-bs-title="Outras despesas">
+                                ?
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <th scope="row">5</th>
+                    <td>Valor do desconto</td>
+                    <td>
+                        <div class="d-flex align-items-center  justify-content-between">
+                            <label for="">R$</label>
+                            <input type="text" class="form-control form-control-sm mx-2">
+                            <button type="button" class="btn btn-duvida bg-secondary mx-2" data-bs-toggle="tooltip"
+                                data-bs-placement="top" data-bs-custom-class="custom-tooltip" data-bs-title="Desconto">
+                                ?
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <th scope="row"></th>
+                    <td>Subtotal</td>
+                    <td>
+                        <div class="d-flex align-items-center  justify-content-between">
+                            <span>R$ 0,00</span>
+                            <button type="button" class="btn btn-duvida bg-secondary mx-2" data-bs-toggle="tooltip"
+                                data-bs-placement="top" data-bs-custom-class="custom-tooltip" data-bs-title="Subtotal">
+                                ?
+                            </button>
                         </div>
 
-                        <div class="col-12 mb-2">
-                            <label for="reducao_icms" class="form-label"> Redução base de Cálculo ICMS </label>
+                    </td>
+                </tr>
+                <tr>
+                    <th scope="row">6</th>
+                    <td>Redução de base de cálculo do ICMS</td>
+                    <td>
+                        <div class="d-flex align-items-center justify-content-between">
+                            <label for="">%</label>
+                            <input type="text" class="form-control form-control-sm mx-2">
+                            <button type="button" class="btn btn-duvida bg-secondary mx-2" data-bs-toggle="tooltip"
+                                data-bs-placement="top" data-bs-custom-class="custom-tooltip"
+                                data-bs-title="Redução de base de cálculo do ICMS">
+                                ?
+                            </button>
                         </div>
-                        <div class="col-md-6 col-6 mb-3">
-                            <select class="form-select" id="reducao_icms">
-                                <option selected value="0">Sem redução</option>
-                                <option value="1">Com redução</option>
-                            </select>
+                    </td>
+                </tr>
+                <tr>
+                    <th scope="row">7</th>
+                    <td>Base de cálculo do ICMS</td>
+                    <td>
+                        <div class="d-flex align-items-center justify-content-between">
+                            <span>R$ 0,00</span>
+                            <button type="button" class="btn btn-duvida bg-secondary mx-2" data-bs-toggle="tooltip"
+                                data-bs-placement="top" data-bs-custom-class="custom-tooltip"
+                                data-bs-title="Base de cálculo do ICMS">
+                                ?
+                            </button>
                         </div>
-                        <div class="col-6 mb-3">
-                            <div class="input-group">
-                                <input id="baseicms" disabled value="0" class="form-control" type="number"
-                                    min="0" max="100">
-                                <span class="input-group-text">%</span>
-                            </div>
+                    </td>
+                </tr>
+                <tr>
+                    <th scope="row">8</th>
+                    <td>Alíquota do ICMS</td>
+                    <td>
+                        <div class="d-flex align-items-center justify-content-between">
+                            <label for="">%</label>
+                            <input type="text" class="form-control form-control-sm mx-2">
+                            <button type="button" class="btn btn-duvida bg-secondary mx-2" data-bs-toggle="tooltip"
+                                data-bs-placement="top" data-bs-custom-class="custom-tooltip" data-bs-title="Alíquota">
+                                ?
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <th scope="row">9</th>
+                    <td>Valor do ICMS Desonerado</td>
+                    <td>
+                        <div class="d-flex align-items-center justify-content-between">
+                            <span>R$ 0,00</span>
+                            <button type="button" class="btn btn-duvida bg-secondary mx-2" data-bs-toggle="tooltip"
+                                data-bs-placement="top" data-bs-custom-class="custom-tooltip"
+                                data-bs-title="Valor do ICMS Desonerado">
+                                ?
+                            </button>
                         </div>
 
-
-                        <div class="col-12 mb-2">
-                            <label for="reducao_icmsst" class="form-label">Redução base de Cálculo ICMS-ST</label>
-                        </div>
-                        <div class="col-6 mb-3">
-                            <select class="form-select" id="reducao_icmsst">
-                                <option selected value="0">Sem redução</option>
-                                <option value="1">Com redução</option>
-                            </select>
-                        </div>
-                        <div class="col-6 mb-5">
-                            <div class="input-group">
-                                <input disabled id="baseicmsst" value="0" class="form-control" type="number"
-                                    min="0" max="100">
-                                <span class="input-group-text">%</span>
-                            </div>
+                    </td>
+                </tr>
+                <tr>
+                    <th scope="row">10</th>
+                    <td>Base de cálculo do IPI</td>
+                    <td>
+                        <div class="d-flex align-items-center justify-content-between">
+                            <span>R$ 0,00</span>
+                            <button type="button" class="btn btn-duvida bg-secondary mx-2" data-bs-toggle="tooltip"
+                                data-bs-placement="top" data-bs-custom-class="custom-tooltip"
+                                data-bs-title="Base de cálculo do IPI">
+                                ?
+                            </button>
                         </div>
 
-                        <div class="col-12 my-3 py-3 border-top">
-                            <div class="row text-start">
-                                <div class="col-6 mb-3 fw-semibold ">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
-                                        fill="currentColor" class="bi bi-pencil-fill" viewBox="0 0 16 16">
-                                        <path
-                                            d="M12.854.146a.5.5 0 0 0-.707 0L10.5 1.793 14.207 5.5l1.647-1.646a.5.5 0 0 0 0-.708l-3-3zm.646 6.061L9.793 2.5 3.293 9H3.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.207l6.5-6.5zm-7.468 7.468A.5.5 0 0 1 6 13.5V13h-.5a.5.5 0 0 1-.5-.5V12h-.5a.5.5 0 0 1-.5-.5V11h-.5a.5.5 0 0 1-.5-.5V10h-.5a.499.499 0 0 1-.175-.032l-.179.178a.5.5 0 0 0-.11.168l-2 5a.5.5 0 0 0 .65.65l5-2a.5.5 0 0 0 .168-.11l.178-.178z" />
-                                    </svg> MVA <br> <span class="fw-normal">45,00%</span>
-                                </div>
-                                <div class="col-6 mb-3 fw-semibold">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
-                                        fill="currentColor" class="bi bi-pencil-fill" viewBox="0 0 16 16">
-                                        <path
-                                            d="M12.854.146a.5.5 0 0 0-.707 0L10.5 1.793 14.207 5.5l1.647-1.646a.5.5 0 0 0 0-.708l-3-3zm.646 6.061L9.793 2.5 3.293 9H3.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.207l6.5-6.5zm-7.468 7.468A.5.5 0 0 1 6 13.5V13h-.5a.5.5 0 0 1-.5-.5V12h-.5a.5.5 0 0 1-.5-.5V11h-.5a.5.5 0 0 1-.5-.5V10h-.5a.499.499 0 0 1-.175-.032l-.179.178a.5.5 0 0 0-.11.168l-2 5a.5.5 0 0 0 .65.65l5-2a.5.5 0 0 0 .168-.11l.178-.178z" />
-                                    </svg> FCP <br> <span class="fw-normal">0,00%</span>
-                                </div>
-                                <div class="col-6 mb-3 fw-semibold">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
-                                        fill="currentColor" class="bi bi-pencil-fill" viewBox="0 0 16 16">
-                                        <path
-                                            d="M12.854.146a.5.5 0 0 0-.707 0L10.5 1.793 14.207 5.5l1.647-1.646a.5.5 0 0 0 0-.708l-3-3zm.646 6.061L9.793 2.5 3.293 9H3.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.207l6.5-6.5zm-7.468 7.468A.5.5 0 0 1 6 13.5V13h-.5a.5.5 0 0 1-.5-.5V12h-.5a.5.5 0 0 1-.5-.5V11h-.5a.5.5 0 0 1-.5-.5V10h-.5a.499.499 0 0 1-.175-.032l-.179.178a.5.5 0 0 0-.11.168l-2 5a.5.5 0 0 0 .65.65l5-2a.5.5 0 0 0 .168-.11l.178-.178z" />
-                                    </svg> Alíquota ICMS <br> <span class="fw-normal">17,00%</span>
-                                </div>
-                                <div class="col-6 mb-3 fw-semibold">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
-                                        fill="currentColor" class="bi bi-pencil-fill" viewBox="0 0 16 16">
-                                        <path
-                                            d="M12.854.146a.5.5 0 0 0-.707 0L10.5 1.793 14.207 5.5l1.647-1.646a.5.5 0 0 0 0-.708l-3-3zm.646 6.061L9.793 2.5 3.293 9H3.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.207l6.5-6.5zm-7.468 7.468A.5.5 0 0 1 6 13.5V13h-.5a.5.5 0 0 1-.5-.5V12h-.5a.5.5 0 0 1-.5-.5V11h-.5a.5.5 0 0 1-.5-.5V10h-.5a.499.499 0 0 1-.175-.032l-.179.178a.5.5 0 0 0-.11.168l-2 5a.5.5 0 0 0 .65.65l5-2a.5.5 0 0 0 .168-.11l.178-.178z" />
-                                    </svg> Alíquota ICMS-ST <br> <span class="fw-normal">17,00%</span>
-                                </div>
-                            </div>
+                    </td>
+                </tr>
+                <tr>
+                    <th scope="row">11</th>
+                    <td>Alíquota do IPI</td>
+                    <td>
+                        <div class="d-flex align-items-center justify-content-between">
+                            <label for="">%</label>
+                            <input type="text" class="form-control form-control-sm mx-2">
+                            <button type="button" class="btn btn-duvida bg-secondary mx-2" data-bs-toggle="tooltip"
+                                data-bs-placement="top" data-bs-custom-class="custom-tooltip"
+                                data-bs-title="Alíquota do IPI">
+                                ?
+                            </button>
                         </div>
-                    </div>
-                </form>
+                    </td>
+                </tr>
+                <tr>
+                    <th scope="row">12</th>
+                    <td>Valor do IPI</td>
+                    <td>
+                        <div class="d-flex align-items-center justify-content-between">
+                            <span>R$ 0,00</span>
+                            <button type="button" class="btn btn-duvida bg-secondary mx-2" data-bs-toggle="tooltip"
+                                data-bs-placement="top" data-bs-custom-class="custom-tooltip"
+                                data-bs-title="Valor do IPI">
+                                ?
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <th scope="row">13</th>
+                    <td>Valor total da operação (antes do cálculo da Substituição Tributária)</td>
+                    <td>
+                        <div class="d-flex align-items-center justify-content-between">
+                            <span>R$ 0,00</span>
+                            <button type="button" class="btn btn-duvida bg-secondary mx-2" data-bs-toggle="tooltip"
+                                data-bs-placement="top" data-bs-custom-class="custom-tooltip"
+                                data-bs-title="Valor total da operação (antes do cálculo da Substituição Tributária)">
+                                ?
+                            </button>
+                        </div>
 
+                    </td>
+                </tr>
+                <tr>
+                    <th scope="row">14</th>
+                    <td>MVA</td>
+                    <td>
+                        <div class="d-flex align-items-center justify-content-between">
+                            <label for="">%</label>
+                            <input type="text" class="form-control form-control-sm mx-2">
+                            <button type="button" class="btn btn-duvida bg-secondary mx-2" data-bs-toggle="tooltip"
+                                data-bs-placement="top" data-bs-custom-class="custom-tooltip" data-bs-title="MVA">
+                                ?
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <th scope="row">15</th>
+                    <td>Redução de base de cálculo do ICMS-ST</td>
+                    <td>
+                        <div class="d-flex align-items-center justify-content-between">
+                            <label for="">%</label>
+                            <input type="text" class="form-control form-control-sm mx-2">
+                            <button type="button" class="btn btn-duvida bg-secondary mx-2" data-bs-toggle="tooltip"
+                                data-bs-placement="top" data-bs-custom-class="custom-tooltip"
+                                data-bs-title="Redução de base de cálculo do ICMS-ST">
+                                ?
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <th scope="row">16</th>
+                    <td>Base de cálculo do ICMS-ST</td>
+                    <td>
+                        <div class="d-flex align-items-center justify-content-between">
+                            <span>R$ 0,00</span>
+                            <button type="button" class="btn btn-duvida bg-secondary mx-2" data-bs-toggle="tooltip"
+                                data-bs-placement="top" data-bs-custom-class="custom-tooltip"
+                                data-bs-title="Base de cálculo do ICMS-ST">
+                                ?
+                            </button>
+                        </div>
+
+                    </td>
+                </tr>
+                <tr>
+                    <th scope="row">17</th>
+                    <td>Alíquota do ICMS-ST</td>
+                    <td>
+                        <div class="d-flex align-items-center justify-content-between">
+                            <label for="">%</label>
+                            <input type="text" class="form-control form-control-sm mx-2">
+                            <button type="button" class="btn btn-duvida bg-secondary mx-2" data-bs-toggle="tooltip"
+                                data-bs-placement="top" data-bs-custom-class="custom-tooltip"
+                                data-bs-title="Alíquota do ICMS-ST">
+                                ?
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <th scope="row"></th>
+                    <td>Subtotal Substituição Tributária (antes da dedução do ICMS próprio)</td>
+                    <td>
+                        <div class="d-flex align-items-center justify-content-between">
+                            <span>R$ 0,00</span>
+                            <button type="button" class="btn btn-duvida bg-secondary mx-2" data-bs-toggle="tooltip"
+                                data-bs-placement="top" data-bs-custom-class="custom-tooltip"
+                                data-bs-title="Subtotal Substituição Tributária (antes da dedução do ICMS próprio)">
+                                ?
+                            </button>
+                        </div>
+
+                    </td>
+                </tr>
+                <tr>
+                    <th scope="row">18</th>
+                    <td>Valor do ICMS-ST</td>
+                    <td>
+                        <div class="d-flex align-items-center justify-content-between">
+                            <span>R$ 0,00</span>
+                            <button type="button" class="btn btn-duvida bg-secondary mx-2" data-bs-toggle="tooltip"
+                                data-bs-placement="top" data-bs-custom-class="custom-tooltip"
+                                data-bs-title="Valor do ICMS-ST">
+                                ?
+                            </button>
+                        </div>
+
+                    </td>
+                </tr>
+                <tr>
+                    <th scope="row">19</th>
+                    <td>Valor total da operação (após o cálculo da Substituição Tributária)</td>
+                    <td>
+                        <div class="d-flex align-items-center justify-content-between">
+                            <span>R$ 0,00</span>
+                            <button type="button" class="btn btn-duvida bg-secondary mx-2" data-bs-toggle="tooltip"
+                                data-bs-placement="top" data-bs-custom-class="custom-tooltip"
+                                data-bs-title="Valor total da operação (após o cálculo da Substituição Tributária)">
+                                ?
+                            </button>
+                        </div>
+
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <div class="d-flex justify-content-around">
+            <div>
+                <button type="button" class="btn btn-primary">Limpar</button>
             </div>
-            <!-- Tabela Esquerda -->
-            <div class=" p-3  mb-5 border shadow rounded bg-white">
-                <!--Inputs de valores reais-->
-                <form>
-                    <div class="row  p-3    ">
-                        <div class="col-md-6 mb-3">
-                            <label for="valor_produto" class="form-label">Valor total do produto</label>
-                            <div class="input-group">
-                                <span class="input-group-text">R$</span>
-                                <input id="valor_produto" type="text" value="0" class="form-control">
-                            </div>
-                        </div>
-
-                        <div class="col-md-6 mb-3">
-                            <label for="valor_seguro" class="form-label">Valor do seguro</label>
-                            <div class="input-group">
-                                <span class="input-group-text">R$</span>
-                                <input id="valor_seguro" type="text" value="0" class="form-control">
-                            </div>
-                        </div>
-
-                        <div class="col-md-6 mb-3">
-                            <label for="tipofrete" class="form-label">Tipo de frete</label>
-                            <select id="tipofrete" class="form-select">
-                                <option value="0" selected>Sem frete</option>
-                                <option value="1">Com frete</option>
-                            </select>
-                        </div>
-
-                        <div class="col-md-6 mb-3">
-                            <label for="valor_frete" class="form-label">Valor do Frete</label>
-                            <div class="input-group">
-                                <span class="input-group-text">R$</span>
-                                <input id="valor_frete" disabled type="text" value="0" class="form-control">
-                            </div>
-                        </div>
-
-                        <div class="col-md-6 mb-3">
-                            <label for="desconto" class="form-label">Desconto</label>
-                            <div class="input-group">
-                                <span class="input-group-text">R$</span>
-                                <input id="desconto" type="text" value="0" class="form-control">
-                            </div>
-                        </div>
-
-                        <div class="col-md-6 mb-3">
-                            <label for="outros" class="form-label">Outras despesas</label>
-                            <div class="input-group">
-                                <span class="input-group-text">R$</span>
-                                <input id="outros" type="text" value="0" class="form-control">
-                            </div>
-                        </div>
-
-                        <!-- Resultados -->
-
-                        <div class="col-md-6 p-2 border">
-                            Base de Cálculo do ICMS <br>
-                            <span>R$ 0,00</span>
-                        </div>
-
-
-                        <div class="col-md-6 p-2 border">
-                            Valor do ICMS <br>
-                            <span>R$ 0,00</span>
-                        </div>
-
-                        <div class="col-md-6 p-2 border">
-                            Base de Cálculo do ICMS ST
-                            <br>
-                            <span>R$ 0,00</span>
-                        </div>
-
-                        <div class="col-md-6 p-2 border">
-                            Valor do ICMS-ST<br>
-                            <span>R$ 0,00</span>
-                        </div>
-
-                        <div class="col-md-4 p-2 border">
-                            FCP <br>
-                            <span>R$ 0,00</span>
-                        </div>
-
-                        <div class="col-md-4 p-2 border">
-                            Valor do IPI<br>
-                            <p>R$ <span id="ipi"></span></p>
-                        </div>
-
-                        <div class="col-md-4 p-2 border">
-                            Valor da nota total <br>
-                            R$ <span id="resultado"></span>
-                        </div>
-
-                        <div class="col-12 my-3">
-                            <button type="button" id="btn_somar" class="btn btn-outline-info float-end">Somar</button>
-                        </div>
-                    </div>
-                </form>
+            <div>
+                <button type="button" class="btn btn-secondary text-light">Calcular</button>
             </div>
         </div>
     </div>
