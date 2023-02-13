@@ -86,7 +86,7 @@
                                 </li>
                             </ul>
                         </li>
-                        <li class="nav-item py-2">
+                        {{-- <li class="nav-item py-2">
                             <strong class="d-flex w-100 align-items-center fw-semibold fs-5">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20"
                                     fill="currentColor" class="bi bi-segmented-nav me-2" viewBox="0 0 16 16">
@@ -100,7 +100,7 @@
                                     <a href="" class="nav-link text-black opacity-75 fs-6">Criar um Segmento</a>
                                 </li>
                             </ul>
-                        </li>
+                        </li> --}}
 
                         {{-- <li class="nav-item py-2">
                             <strong class="d-flex w-100 align-items-center fw-semibold fs-5">

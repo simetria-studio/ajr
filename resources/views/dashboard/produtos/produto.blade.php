@@ -17,7 +17,7 @@
         </div>
     @endif
     <div class="table-responsive">
-        <table class="table table-bordered ">
+        <table id="tabela" class="table table-bordered ">
             <thead class="table-dark">
                 <tr>
                     <th scope="col">ID</th>
@@ -27,6 +27,40 @@
                     <th scope="col">Segmento</th>
                     <th scope="col">Estado</th>
                     <th scope="col">Ação</th>
+                </tr>
+                <tr>
+                    <form action="/dashboard/produtos" method="GET">
+                        <th scope="col"></th>
+                        <th scope="col">
+                            <input type="text" name="nome_produto" class="form-control" placeholder="Nome do Produto"
+                                value="{{ request()->nome_produto }}">
+                        </th>
+                        <th scope="col">
+                            <input type="text" name="cest" class="form-control" placeholder="CEST"
+                                value="{{ request()->cest }}">
+                        </th>
+                        <th scope="col">
+                            <input type="text" name="ncm" class="form-control" placeholder="NCM"
+                                value="{{ request()->ncm }}">
+                        </th>
+                        <th scope="col">
+                            <input type="text" name="segmento" class="form-control" placeholder="Segmento"
+                                value="{{ request()->segmento }}">
+                        </th>
+                        <th scope="col">
+                            <select name="estado_id" class="form-control">
+                                <option value="">Selecione</option>
+                                @foreach ($estados as $e)
+                                    <option value="{{ $e->id }}"
+                                        {{ request()->estado_id == $e->id ? 'selected' : '' }}>
+                                        {{ $e->name }}</option>
+                                @endforeach
+                            </select>
+                        </th>
+                        <th scope="col">
+                            <button type="submit" class="btn btn-primary">Filtrar</button>
+                        </th>
+                    </form>
                 </tr>
             </thead>
             <tbody>
@@ -78,7 +112,7 @@
             </tbody>
         </table>
 
-         {{ $info->links() }}
+        {{ $info->links() }}
 
     </div>
 @endsection
@@ -98,7 +132,7 @@
             }).then((result) => {
                 if (result.isConfirmed) {
                     $.ajax({
-                        url: "/dashboard/produtos/delete/" ,
+                        url: "/dashboard/produtos/delete/",
                         type: 'POST',
                         data: {
                             "id": id,
@@ -119,6 +153,22 @@
             })
 
         });
+        // $(function() {
+        //     $("#tabela input").on("keyup", function() {
+        //         var index = $(this).parent().index();
+        //         var nth = "#tabela td:nth-child(" + (index + 1).toString() + ")";
+        //         var value = $(this).val().toLowerCase();
+        //         $("#tabela tbody tr").show();
+        //         $(nth).each(function() {
+        //             if ($(this).text().toLowerCase().indexOf(value) < 0) {
+        //                 $(this).parent().hide();
+        //             }
+        //         });
+        //         $("#tabela input").on("blur", function() {
+        //             $(this).val("");
+        //         });
+        //     });
+        // })
     </script>
 
 @endsection

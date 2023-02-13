@@ -2,10 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\InfoProduto;
 use App\Models\State;
 use App\Models\Produto;
+use App\Models\InfoProduto;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 
 class ProdutoController extends Controller
@@ -15,13 +16,17 @@ class ProdutoController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-
+        $estados = State::all();
         $produtos = Produto::all();
         $info = InfoProduto::with('estado')->with('produto')->paginate(10);
-        $estados = State::all();
 
+        $nome_produto = $request->input('nome_produto');
+        $produtos = DB::table('produtos')
+        ->where(function($query) use ($nome_produto) {
+            $query->where('nome_produto', 'like', '%' . $nome_produto . '%');
+        });
 
 
         return view('dashboard.produtos.produto', get_defined_vars());
@@ -116,7 +121,6 @@ class ProdutoController extends Controller
         InfoProduto::create($request->all());
 
         return redirect('/dashboard/produtos')->with('mensagem', 'Informação cadastrada com sucesso!');
-
     }
 
     public function teste()

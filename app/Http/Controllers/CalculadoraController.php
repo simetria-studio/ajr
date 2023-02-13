@@ -2,6 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\InfoProduto;
+use App\Models\Produto;
+use App\Models\State;
 use Illuminate\Http\Request;
 
 class CalculadoraController extends Controller
@@ -13,8 +16,11 @@ class CalculadoraController extends Controller
      */
     public function index()
     {
-        return view('site.calculadora.interna');
+        $estado = State::all();
+        $produtos = Produto::all();
+        $info = InfoProduto::with('produto')->with('estado')->get();
 
+        return view('site.calculadora.interna', get_defined_vars());
     }
 
 
